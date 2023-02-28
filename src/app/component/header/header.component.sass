@@ -1,23 +1,33 @@
+$headerColor: #6a5acd
+$searchColor: #d3d3d3
+$defaultColor: #FFFFFF
+
 .navbar
     display: flex
     flex-direction: row
+    align-items: center
     justify-content: space-between
-    background-color: blue
+    background-color: $headerColor
     padding: 0 10% 0 10%
 
 .name
-    color: white
+    color: $defaultColor
 
 .shop-logo
     display: flex
     flex-direction: row
+    align-items: center
 
 .shop-icon
+    color: $defaultColor
+    transform: scale(2.2)
+    margin-right: 22px
 
 .cart-icon
-
+    color: $defaultColor
+    transform: scale(1.5)
 .search
     display: flex
     justify-content: center
-    background-color: grey
+    background-color: $searchColor
     padding: 20px 0 20px 0
