@@ -1,5 +1,5 @@
-$headerColor: #6a5acd
-$searchColor: #d3d3d3
+$headerColor: linear-gradient(90deg, #6a5acd 0%, #956a7d 100%)
+$searchColor: #f0f0f0c7
 $defaultColor: #FFFFFF
 
 .navbar
@@ -7,7 +7,7 @@ $defaultColor: #FFFFFF
     flex-direction: row
     align-items: center
     justify-content: space-between
-    background-color: $headerColor
+    background: $headerColor
     padding: 0 10% 0 10%
 
 .name
@@ -26,8 +26,39 @@ $defaultColor: #FFFFFF
 .cart-icon
     color: $defaultColor
     transform: scale(1.5)
+
 .search
     display: flex
     justify-content: center
     background-color: $searchColor
-    padding: 20px 0 20px 0
+    padding: 30px 0 30px 0
+
+.search__input
+    height: 60px
+    min-width: 100px
+    width: 400px
+    margin-left: 5%
+    padding-left: 10px
+    font-size: 100%
+    border: 0
+    outline: 0
+    border-radius: 5px 0 0 5px
+
+.search__select
+    height: 60px
+    border: none
+    margin: 0 1px 0 1px
+    padding: 0 5px 0 5px
+
+.search__btn
+    display: flex
+    align-items: center
+    background-color: $defaultColor
+    height: 60px
+    margin-right: 5%
+    padding: 0 5px 0 5px
+    border: none
+    border-radius: 0 5px 5px 0
+    &:hover
+        background: $headerColor
+        color: $defaultColor
