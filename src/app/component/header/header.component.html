@@ -1,21 +1,31 @@
 <header>
-    <div class="navbar">
+    <div class="header">
         <div class="shop-logo">
-            <mat-icon class="shop-icon">shop</mat-icon>
-            <h1 class="name">Shop</h1>
+            <mat-icon class="shop-logo__icon">shop</mat-icon>
+            <h1 class="shop-logo__name">Shop</h1>
         </div>
-        <mat-icon class="cart-icon">shopping_cart</mat-icon>
+        <div class="buttons">
+            <button class="buttons__switcher" (click)="switchDarkModeState()">
+                <mat-icon class="buttons__switcher--light" *ngIf="currentDarkModeState" >wb_sunny</mat-icon>
+                <mat-icon class="buttons__switcher--dark" *ngIf="!currentDarkModeState" >brightness_2</mat-icon>
+            </button>
+            <button  class="buttons__cart">
+                <mat-icon class="buttons__cart--icon">shopping_cart</mat-icon>
+                <div class="buttons__cart--counter">5</div></button>
+        </div>
     </div>
 </header>
 <nav>
-    <div class="search">
-        <input class="search__input" type="text" placeholder="search">
-        <select class="search__select" name="" id="" >
+    <div [ngClass]="currentDarkModeState ? 'navi-dark' : 'navi-light'">
+        <input class="navi__input" type="text" placeholder="search">
+        <select class="navi__select"  name="" id="" >
             <option value="">All product</option>
             <option value="">Electronic</option>
             <option value="">Fashion</option>
             <option value="">Jewelery</option>
         </select>
-        <button class="search__btn" >Search<mat-icon class="search__icon">search</mat-icon></button>
+        <button class="navi__search" >Search<mat-icon>search</mat-icon>
+        </button>
     </div>
 </nav>
+

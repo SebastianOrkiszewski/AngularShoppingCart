@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'shop';
+  darkModeState = true
+
+  switchDarkModeState(): void{
+    this.darkModeState = !this.darkModeState
+  }
 }

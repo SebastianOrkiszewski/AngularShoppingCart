@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.sass']
 })
 export class HeaderComponent {
+@Input() currentDarkModeState: any;
 
+@Output() changeState = new EventEmitter<boolean>();
+
+switchDarkModeState() {
+  this.currentDarkModeState = !this.currentDarkModeState
+  this.changeState.emit(this.currentDarkModeState);
+}
 }

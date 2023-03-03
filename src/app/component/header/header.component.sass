@@ -1,39 +1,98 @@
 $headerColor: linear-gradient(90deg, #6a5acd 0%, #956a7d 100%)
-$searchColor: #f0f0f0c7
+$searchLightColor: #f0f0f0c7
+$searchDarkColor: #000000d0
 $defaultColor: #FFFFFF
+$transparentColor: #ffffff00
+$lightIcon: #f6fa1fe3
+$darkIcon: #0000008c
 
-.navbar
+@mixin navIconSize
+    font-size: 40px
+    height: 40px
+    width: 40px
+
+.header
     display: flex
     flex-direction: row
     align-items: center
     justify-content: space-between
     background: $headerColor
     padding: 0 10% 0 10%
-
-.name
-    color: $defaultColor
+    height: 8vh
 
 .shop-logo
     display: flex
     flex-direction: row
     align-items: center
 
-.shop-icon
+.shop-logo__icon
     color: $defaultColor
     transform: scale(2.2)
     margin-right: 22px
 
-.cart-icon
+.shop-logo__name
     color: $defaultColor
-    transform: scale(1.5)
 
-.search
+.buttons
+    display: flex
+    flex-direction: row
+    align-items: center
+
+.buttons__switcher
+    background: 0
+    border: 0
+    margin-right: 5px
+
+.buttons__switcher--light
+    @include navIconSize
+    color: $lightIcon
+    &:hover
+        transform: scale(1.07)
+
+.buttons__switcher--dark
+    @include navIconSize
+    color: $darkIcon
+    &:hover
+        transform: scale(1.07)
+
+.buttons__cart
+    display: flex
+    flex-direction: row
+    align-items: flex-end
+    border: none
+    background-color: $transparentColor
+
+.buttons__cart--icon
+    color: $defaultColor
+    @include navIconSize
+    &:hover
+        color: #fdfdfde8
+
+.buttons__cart--counter
+    background: rgba(243, 13, 13, 0.863)
+    color: white
+    border-radius: 7px
+    font-size: 15px
+    margin-left: -5%
+    padding: 2px 10px 2px 10px
+
+.navi-dark
     display: flex
     justify-content: center
-    background-color: $searchColor
+    align-items: center
+    background-color: $searchDarkColor
     padding: 30px 0 30px 0
+    height: 12vh
 
-.search__input
+.navi-light
+    display: flex
+    justify-content: center
+    align-items: center
+    background-color: $searchLightColor
+    padding: 30px 0 30px 0
+    height: 12vh
+
+.navi__input
     height: 60px
     min-width: 100px
     width: 400px
@@ -44,13 +103,13 @@ $defaultColor: #FFFFFF
     outline: 0
     border-radius: 5px 0 0 5px
 
-.search__select
+.navi__select
     height: 60px
     border: none
     margin: 0 1px 0 1px
     padding: 0 5px 0 5px
 
-.search__btn
+.navi__search
     display: flex
     align-items: center
     background-color: $defaultColor

@@ -1,1 +1,2 @@
-<app-header></app-header>
+<app-header [currentDarkModeState]="darkModeState" (changeState)="switchDarkModeState()" ></app-header>
+<app-articles [currentDarkModeState]="darkModeState" ></app-articles>
