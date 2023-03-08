@@ -3,6 +3,7 @@ $searchLightColor: #f0f0f0c7
 $searchDarkColor: #000000d0
 $defaultColor: #FFFFFF
 $transparentColor: #ffffff00
+$buttonHoverColor: #ffffff1c
 $lightIcon: #f6fa1fe3
 $darkIcon: #0000008c
 
@@ -47,13 +48,19 @@ $darkIcon: #0000008c
     @include navIconSize
     color: $lightIcon
     &:hover
-        transform: scale(1.07)
+        background-color: $buttonHoverColor
+        border-radius: 7px
+    &:active
+        transform: scale(0.98)
 
 .buttons__switcher--dark
     @include navIconSize
     color: $darkIcon
     &:hover
-        transform: scale(1.07)
+        background-color: $buttonHoverColor
+        border-radius: 7px
+    &:active
+        transform: scale(0.98)
 
 .buttons__cart
     display: flex
@@ -66,14 +73,17 @@ $darkIcon: #0000008c
     color: $defaultColor
     @include navIconSize
     &:hover
-        color: #fdfdfde8
+        background-color: $buttonHoverColor
+        border-radius: 7px
+    &:active
+        transform: scale(0.98)
 
 .buttons__cart--counter
     background: rgba(243, 13, 13, 0.863)
     color: white
     border-radius: 7px
     font-size: 15px
-    margin-left: -5%
+    margin-left: 3%
     padding: 2px 10px 2px 10px
 
 .navi-dark
