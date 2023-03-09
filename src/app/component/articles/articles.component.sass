@@ -1,12 +1,90 @@
 $mainLightColor: #FFFFFF
-$mainDarkColor: #000000c0
+$mainDarkColor: #292929
+$headerColor: linear-gradient(90deg, #6a5acd 0%, #956a7d 100%)
+$productsDarkColor: #1d1d1d94
+$productsLightColor: #f0f0f0c7
+
+@mixin hidden-text
+    max-width: 300px
+    text-size
+    display: block
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
 
 .main-light
     background-color: $mainLightColor
+    display: grid
+    grid-gap: 25px
+    place-items: center
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr))
+    overflow: scroll
     width: 100%
     height: 80vh
+    padding: 3% 10% 3% 10%
 
 .main-dark
     background-color: $mainDarkColor
+    display: grid
+    grid-gap: 25px
+    place-items: center
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr))
+    overflow: auto
     width: 100%
     height: 80vh
+    padding: 3% 10% 3% 10%
+
+.products-light
+    background-color: $productsLightColor
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    border: 0
+    border-radius: 7px
+    min-width: 300px
+    min-width: 350px
+    padding: 2%
+
+.products-dark
+    background-color: $productsDarkColor
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    border: 0
+    border-radius: 7px
+    min-width: 300px
+    min-width: 350px
+    padding: 2%
+
+.products__img
+    width: 200px
+    height: 250px
+    border-radius: 7px
+
+.text-container
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+
+.products__title
+    @include hidden-text
+    font-weight: bold
+    letter-spacing: 1px
+
+.products__description
+    @include hidden-text
+
+.products__price
+    font-weight: 500
+
+.products__btn
+    background: $headerColor
+    color: $mainLightColor
+    width: 30%
+    padding: 3% 3% 3% 3%
+    border: 0
+    border-radius: 4px
+    &:active
+        transform: scale(0.98)
