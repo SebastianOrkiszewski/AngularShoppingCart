@@ -1,17 +1,22 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { DarkModeService } from 'src/app/shared/dark-mode.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.sass']
 })
-export class HeaderComponent {
-@Input() currentDarkModeState: any;
+export class HeaderComponent implements OnInit {
+  currentDarkModeState: boolean = false
 
-@Output() changeState = new EventEmitter<boolean>();
+  constructor(private DarkModeService : DarkModeService){}
+  
+  ngOnInit(): void {
+    this.DarkModeService.receivedDarkModeState().subscribe((d) => {
+      this.currentDarkModeState = d;
+    })
+  }
 
-switchDarkModeState() {
-  this.currentDarkModeState = !this.currentDarkModeState
-  this.changeState.emit(this.currentDarkModeState);
-}
+  switchDarkModeState() {
+    this.DarkModeService.changeDarkModeState()
+  }
 }
