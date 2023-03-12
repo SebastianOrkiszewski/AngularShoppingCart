@@ -11,8 +11,8 @@ export class HeaderComponent implements OnInit {
   constructor(private DarkModeService : DarkModeService){}
   
   ngOnInit(): void {
-    this.DarkModeService.receivedDarkModeState().subscribe((d) => {
-      this.currentDarkModeState = d;
+    this.DarkModeService.status.subscribe((data) => {
+      this.currentDarkModeState = data;
     })
   }
 

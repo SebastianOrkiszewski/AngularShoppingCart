@@ -6,14 +6,11 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class DarkModeService {
   private DarkModeState = new BehaviorSubject<boolean>(false)
+  status = this.DarkModeState.asObservable()
 
   constructor() { }
 
   changeDarkModeState(){
     this.DarkModeState.next(!this.DarkModeState.value)
-  }
-
-  receivedDarkModeState(): Observable<boolean>{
-    return this.DarkModeState.asObservable()
   }
 }

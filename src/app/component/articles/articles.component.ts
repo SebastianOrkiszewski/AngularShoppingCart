@@ -20,8 +20,8 @@ ngOnInit(): void {
   .subscribe(res=>{
     this.articlesList = res;
   })
-  this.DarkModeService.receivedDarkModeState().subscribe((d) => {
-    this.currentDarkModeState = d;
+  this.DarkModeService.status.subscribe((data) => {
+    this.currentDarkModeState = data;
   })
 }
 
