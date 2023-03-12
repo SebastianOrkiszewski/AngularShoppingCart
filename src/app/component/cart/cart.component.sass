@@ -1,0 +1,45 @@
+$mainLightColor: #FFFFFF
+$mainDarkColor: #292929
+$ButtonColor: linear-gradient(90deg, #6a5acd 0%, #956a7d 100%)
+
+@mixin size-text
+    font-size: 100%
+    text-align: center
+
+.empty-cart__light
+    background-color: $mainLightColor
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    width: 100%
+    height: 80vh
+
+.empty-cart__dark
+    background-color: $mainDarkColor
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    width: 100%
+    height: 80vh
+
+.empty-cart__logo
+    min-width: 200px
+    width: 17vw
+.empty-cart__title
+    margin-bottom: 0
+    padding: 0 20px 0 20px
+.empty-cart__news
+    @include size-text
+.empty-cart__btn
+    @include size-text
+    background: $ButtonColor
+    color: $mainLightColor
+    min-width: 120px
+    width: 8vw
+    padding: 15px 0 15px 0
+    border: 0
+    border-radius: 4px
+    &:active
+        transform: scale(0.98)

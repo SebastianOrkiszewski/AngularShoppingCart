@@ -1,1 +1,6 @@
-<p>cart works!</p>
+<main [ngClass]="currentDarkModeState ? 'empty-cart__dark' : 'empty-cart__light'" >
+<img class="empty-cart__logo" [src]="'assets/image/basket.png'" alt="empty cart logo">
+<h3 [style.color]="currentDarkModeState ? 'white' : 'black'" class="empty-cart__title">Your shopping cart is empty</h3>
+<p [style.color]="currentDarkModeState ? 'white' : 'black'" class="empty-cart__news">Add items to the cart and buy them quickly and conveniently.</p>
+<button routerLink="/articles"  class="empty-cart__btn" >Return</button>
+</main>
