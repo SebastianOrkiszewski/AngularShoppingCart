@@ -1,6 +1,43 @@
-<main [ngClass]="currentDarkModeState ? 'empty-cart__dark' : 'empty-cart__light'" >
-<img class="empty-cart__logo" [src]="'assets/image/basket.png'" alt="empty cart logo">
-<h3 [style.color]="currentDarkModeState ? 'white' : 'black'" class="empty-cart__title">Your shopping cart is empty</h3>
-<p [style.color]="currentDarkModeState ? 'white' : 'black'" class="empty-cart__news">Add items to the cart and buy them quickly and conveniently.</p>
-<button routerLink="/articles"  class="empty-cart__btn" >Return</button>
-</main>
+<ng-container *ngIf="true">
+    <main [ngClass]="currentDarkModeState ? 'filled-cart__dark' : 'filled-cart__light'" >
+        
+            <div [ngClass]="currentDarkModeState ? 'articles-container__dark' : 'articles-container__light'">
+                <img src="" alt="">
+                <p [style.color]="currentDarkModeState ? 'white' : 'black'" >title</p>
+                <div class="articles-container__quantity">
+                    <mat-icon class="articles-container__quantity--icons">remove_circle</mat-icon>
+                    <p [style.color]="currentDarkModeState ? 'white' : 'black'" >quantity</p>
+                    <mat-icon class="articles-container__quantity--icons" >add_circle</mat-icon>
+                </div>
+                <div class="articles-container__prices">
+                    <p [style.color]="currentDarkModeState ? 'white' : 'black'" >price all</p>
+                    <p [style.color]="currentDarkModeState ? 'white' : 'black'" >price</p>
+                </div>
+                <mat-icon class="articles-container__quantity--icons" >delete_forever</mat-icon>
+            </div>
+    
+            <div [ngClass]="currentDarkModeState ? 'pay-container__dark' : 'pay-container__light'">
+                <div class="pay-container__value">
+                    <h1 [style.color]="currentDarkModeState ? 'white' : 'black'" >Grand Total</h1>
+                    <h1 [style.color]="currentDarkModeState ? 'white' : 'black'" >cena</h1>
+                </div>
+                <div class="pay-container__buttons">
+                    <button>Pay</button>
+                    <button>Delete everything</button>
+                    <button routerLink="/articles">Continue shopping</button>
+                </div>
+            </div>
+        
+    </main>
+</ng-container>
+
+
+<ng-container *ngIf="false" >
+    <main [ngClass]="currentDarkModeState ? 'empty-cart__dark' : 'empty-cart__light'" >
+        <img class="empty-cart__logo" [src]="'assets/image/basket.png'" alt="empty cart logo">
+        <h3 [style.color]="currentDarkModeState ? 'white' : 'black'" class="empty-cart__title">Your shopping cart is empty</h3>
+        <p [style.color]="currentDarkModeState ? 'white' : 'black'" class="empty-cart__news">Add items to the cart and buy them quickly and conveniently.</p>
+        <button routerLink="/articles"  class="empty-cart__btn" >Return</button>
+        </main>
+</ng-container>
+
