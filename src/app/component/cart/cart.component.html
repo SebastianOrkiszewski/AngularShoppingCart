@@ -1,4 +1,4 @@
-<ng-container *ngIf="true">
+<ng-container *ngIf="products.length != 0">
     <main [ngClass]="currentDarkModeState ? 'filled-cart__dark' : 'filled-cart__light'" >
         
             <div *ngFor="let item of products, let i = index" [ngClass]="currentDarkModeState ? 'articles-container__dark' : 'articles-container__light'">
@@ -6,11 +6,11 @@
                 <p [style.color]="currentDarkModeState ? 'white' : 'black'" >{{item.title}}</p>
                 <div class="articles-container__quantity">
                     <mat-icon class="articles-container__quantity--icons">remove_circle</mat-icon>
-                    <p [style.color]="currentDarkModeState ? 'white' : 'black'" >{{item.quantity}}@</p>
+                    <p [style.color]="currentDarkModeState ? 'white' : 'black'" >{{item.quantity}}</p>
                     <mat-icon class="articles-container__quantity--icons" >add_circle</mat-icon>
                 </div>
                 <div class="articles-container__prices">
-                    <p [style.color]="currentDarkModeState ? 'white' : 'black'" >{{item.total}}</p>
+                    <p [style.color]="currentDarkModeState ? 'white' : 'black'" >??</p>
                     <p [style.color]="currentDarkModeState ? 'white' : 'black'" >{{item.price}}$</p>
                 </div>
                 <mat-icon (click)="removeCartItem(item)" class="articles-container__quantity--icons" >delete_forever</mat-icon>
@@ -32,7 +32,7 @@
 </ng-container>
 
 
-<ng-container *ngIf="false" >
+<ng-container *ngIf="products.length == 0" >
     <main [ngClass]="currentDarkModeState ? 'empty-cart__dark' : 'empty-cart__light'" >
         <img class="empty-cart__logo" [src]="'assets/image/basket.png'" alt="empty cart logo">
         <h3 [style.color]="currentDarkModeState ? 'white' : 'black'" class="empty-cart__title">Your shopping cart is empty</h3>

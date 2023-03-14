@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, pipe } from 'rxjs';
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class ApiService {
 
   getDetails(){
     return this.http.get<any>(this.API_URL)
-    pipe(map((res:any)=>{
+    .pipe(map((res:any)=>{
       return res;
     }))
   }

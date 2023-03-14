@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/shared/api.service';
 import { DarkModeService } from 'src/app/shared/dark-mode.service';
 import { CartService } from 'src/app/shared/cart.service';
 @Component({
@@ -10,12 +9,12 @@ import { CartService } from 'src/app/shared/cart.service';
 export class CartComponent implements OnInit {
 
   public products: any = []
-  public grandTotal !: number
+  public grandTotal !: any
 
 
 currentDarkModeState: boolean = false
 
-constructor(private api : ApiService, private DarkModeService : DarkModeService, private CartService: CartService){}
+constructor(private DarkModeService : DarkModeService, private CartService: CartService){}
 ngOnInit(): void {
   this.DarkModeService.status.subscribe((data) => {
     this.currentDarkModeState = data;
