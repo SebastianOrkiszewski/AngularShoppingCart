@@ -7,7 +7,7 @@
             <p [style.color]="currentDarkModeState ? 'white' : 'black'" class="products__description">{{items.description}}</p>
             <p [style.color]="currentDarkModeState ? 'white' : 'black'" class="products__price">PRICE: {{items.price}} $</p>
             </div>
-            <button class="products__btn">Add to cart</button>
+            <button (click)="ddArticleToCart(items)" class="products__btn">Add to cart</button>
         </div>
         </ng-container>
 </main>

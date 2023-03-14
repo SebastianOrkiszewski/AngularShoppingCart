@@ -1,17 +1,17 @@
 <ng-container *ngIf="true">
     <main [ngClass]="currentDarkModeState ? 'filled-cart__dark' : 'filled-cart__light'" >
         
-            <div [ngClass]="currentDarkModeState ? 'articles-container__dark' : 'articles-container__light'">
-                <img src="" alt="">
-                <p [style.color]="currentDarkModeState ? 'white' : 'black'" >title</p>
+            <div *ngFor="let item of products, let i = index" [ngClass]="currentDarkModeState ? 'articles-container__dark' : 'articles-container__light'">
+                <img style="width: 50px" src="{{item.image}}" alt="">
+                <p [style.color]="currentDarkModeState ? 'white' : 'black'" >{{item.title}}</p>
                 <div class="articles-container__quantity">
                     <mat-icon class="articles-container__quantity--icons">remove_circle</mat-icon>
-                    <p [style.color]="currentDarkModeState ? 'white' : 'black'" >quantity</p>
+                    <p [style.color]="currentDarkModeState ? 'white' : 'black'" >{{item.quantity}}</p>
                     <mat-icon class="articles-container__quantity--icons" >add_circle</mat-icon>
                 </div>
                 <div class="articles-container__prices">
                     <p [style.color]="currentDarkModeState ? 'white' : 'black'" >price all</p>
-                    <p [style.color]="currentDarkModeState ? 'white' : 'black'" >price</p>
+                    <p [style.color]="currentDarkModeState ? 'white' : 'black'" >{{item.price}}$</p>
                 </div>
                 <mat-icon class="articles-container__quantity--icons" >delete_forever</mat-icon>
             </div>
@@ -19,7 +19,7 @@
             <div [ngClass]="currentDarkModeState ? 'pay-container__dark' : 'pay-container__light'">
                 <div class="pay-container__value">
                     <h1 [style.color]="currentDarkModeState ? 'white' : 'black'" >Grand Total</h1>
-                    <h1 [style.color]="currentDarkModeState ? 'white' : 'black'" >cena</h1>
+                    <h1 [style.color]="currentDarkModeState ? 'white' : 'black'" >{{grandTotal}}</h1>
                 </div>
                 <div class="pay-container__buttons">
                     <button>Pay</button>
