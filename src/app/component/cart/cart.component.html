@@ -1,9 +1,9 @@
-<ng-container *ngIf="products.length != 0">
+<ng-container *ngIf="products.length !=0">
     <main [ngClass]="currentDarkModeState ? 'filled-cart__dark' : 'filled-cart__light'" >
-        
-            <div *ngFor="let item of products, let i = index" [ngClass]="currentDarkModeState ? 'articles-container__dark' : 'articles-container__light'">
-                <img style="width: 50px" src="{{item.image}}" alt="">
-                <p [style.color]="currentDarkModeState ? 'white' : 'black'" >{{item.title}}</p>
+        <div class="articles-container">
+            <div *ngFor="let item of products; let i = index" [ngClass]="currentDarkModeState ? 'articles-container__dark' : 'articles-container__light'">
+                <img class="articles-container__image" src="{{item.image}}" alt="a">
+                <p class="articles-container__title" [style.color]="currentDarkModeState ? 'white' : 'black'" >{{item.title}}</p>
                 <div class="articles-container__quantity">
                     <mat-icon class="articles-container__quantity--icons">remove_circle</mat-icon>
                     <p [style.color]="currentDarkModeState ? 'white' : 'black'" >{{item.quantity}}</p>
@@ -15,16 +15,17 @@
                 </div>
                 <mat-icon (click)="removeCartItem(item)" class="articles-container__quantity--icons" >delete_forever</mat-icon>
             </div>
+        </div>
     
             <div [ngClass]="currentDarkModeState ? 'pay-container__dark' : 'pay-container__light'">
                 <div class="pay-container__value">
                     <h1 [style.color]="currentDarkModeState ? 'white' : 'black'" >Grand Total</h1>
-                    <h1 [style.color]="currentDarkModeState ? 'white' : 'black'" >{{grandTotal}}</h1>
+                    <h1 [style.color]="currentDarkModeState ? 'white' : 'black'" >{{grandTotal | number: '1.2-2'}}$</h1>
                 </div>
                 <div class="pay-container__buttons">
                     <button>Pay</button>
-                    <button (click)="removeAllCart()">Delete everything</button>
-                    <button routerLink="/articles">Continue shopping</button>
+                    <button (click)="removeAllCart()" >Delete everything</button>
+                    <button routerLink="/articles">Shop</button>
                 </div>
             </div>
         

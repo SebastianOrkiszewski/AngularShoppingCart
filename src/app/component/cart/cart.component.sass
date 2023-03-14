@@ -65,6 +65,11 @@ $productsLightColor: #f0f0f0c7
     height: 80vh
     padding: 0 10% 0 10%
 
+.articles-container
+    display: flex
+    flex-direction: column
+    overflow: auto
+
 .articles-container__light
     background-color: $productsLightColor
     display: flex
@@ -72,7 +77,7 @@ $productsLightColor: #f0f0f0c7
     justify-content: space-around
     align-items: center
     height: 20vh
-    margin: 20px 20px 20px 0
+    margin: 20px 20px 0 0
     padding: 10px
     border: 0
     border-radius: 7px
@@ -84,10 +89,23 @@ $productsLightColor: #f0f0f0c7
     justify-content: space-around
     align-items: center
     height: 20vh
-    margin: 20px 20px 20px 0
+    margin: 20px 20px 0 0
     padding: 10px
     border: 0
     border-radius: 7px
+
+.articles-container__image
+    width: 150px
+    height: 150px
+    border-radius: 5px
+
+.articles-container__title
+    width: 200px
+    text-size
+    display: block
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
 
 .articles-container__quantity
     display: flex
@@ -108,7 +126,7 @@ $productsLightColor: #f0f0f0c7
     background-color: $productsLightColor
     min-height: 230px
     height: 30%
-    margin-top: 20px
+    margin: 20px 0 0 20px
     padding: 10px
     border: 0
     border-radius: 7px
@@ -117,7 +135,7 @@ $productsLightColor: #f0f0f0c7
     background-color: $productsDarkColor
     min-height: 230px
     height: 30%
-    margin-top: 20px
+    margin: 20px 0 0 20px
     padding: 10px
     border: 0
     border-radius: 7px

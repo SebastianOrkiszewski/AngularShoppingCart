@@ -27,7 +27,7 @@ export class CartService {
     console.log(this.cartItems)
   }
 
-  getGrandTotal(): any{
+  getGrandTotal(): number{
     let grandTotal = 0;
     this.cartItems.map((a:any)=>{
       grandTotal += a.total;

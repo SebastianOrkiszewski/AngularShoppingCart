@@ -9,7 +9,7 @@ import { CartService } from 'src/app/shared/cart.service';
 export class CartComponent implements OnInit {
 
   public products: any = []
-  public grandTotal !: any
+  public grandTotal !: number
 
 
 currentDarkModeState: boolean = false
