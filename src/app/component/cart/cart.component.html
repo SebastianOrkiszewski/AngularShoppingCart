@@ -6,14 +6,14 @@
                 <p [style.color]="currentDarkModeState ? 'white' : 'black'" >{{item.title}}</p>
                 <div class="articles-container__quantity">
                     <mat-icon class="articles-container__quantity--icons">remove_circle</mat-icon>
-                    <p [style.color]="currentDarkModeState ? 'white' : 'black'" >{{item.quantity}}</p>
+                    <p [style.color]="currentDarkModeState ? 'white' : 'black'" >{{item.quantity}}@</p>
                     <mat-icon class="articles-container__quantity--icons" >add_circle</mat-icon>
                 </div>
                 <div class="articles-container__prices">
-                    <p [style.color]="currentDarkModeState ? 'white' : 'black'" >price all</p>
+                    <p [style.color]="currentDarkModeState ? 'white' : 'black'" >{{item.total}}</p>
                     <p [style.color]="currentDarkModeState ? 'white' : 'black'" >{{item.price}}$</p>
                 </div>
-                <mat-icon class="articles-container__quantity--icons" >delete_forever</mat-icon>
+                <mat-icon (click)="removeCartItem(item)" class="articles-container__quantity--icons" >delete_forever</mat-icon>
             </div>
     
             <div [ngClass]="currentDarkModeState ? 'pay-container__dark' : 'pay-container__light'">
@@ -23,7 +23,7 @@
                 </div>
                 <div class="pay-container__buttons">
                     <button>Pay</button>
-                    <button>Delete everything</button>
+                    <button (click)="removeAllCart()">Delete everything</button>
                     <button routerLink="/articles">Continue shopping</button>
                 </div>
             </div>

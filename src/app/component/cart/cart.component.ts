@@ -27,4 +27,13 @@ ngOnInit(): void {
     this.grandTotal = this.CartService.getGrandTotal();
   })
 }
+
+removeCartItem(item: any){
+  this.CartService.removeCartItem(item)
+}
+
+removeAllCart(){
+  this.CartService.removeAllCart()
+}
+
 }

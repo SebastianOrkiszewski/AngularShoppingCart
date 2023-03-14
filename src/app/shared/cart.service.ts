@@ -26,6 +26,7 @@ export class CartService {
     this.getGrandTotal()
     console.log(this.cartItems)
   }
+
   getGrandTotal(): number{
     let grandTotal = 0;
     this.cartItems.map((a:any)=>{
@@ -33,4 +34,17 @@ export class CartService {
     })
     return grandTotal
   }
+
+  removeCartItem(item: any){
+    this.cartItems.map((a:any, index:any)=>{
+      if(item.id==a.id){
+        this.cartItems.splice(index,1)
+      }
+    })
+  }
+  removeAllCart(){
+    this.cartItems = []
+    this.articleList.next(this.cartItems)
+  }
+
 }
