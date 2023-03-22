@@ -1,17 +1,17 @@
 <ng-container *ngIf="products.length !=0">
     <main [ngClass]="currentDarkModeState ? 'filled-cart__dark' : 'filled-cart__light'" >
         <div class="articles-container">
-            <div *ngFor="let item of products; let i = index" [ngClass]="currentDarkModeState ? 'articles-container__dark' : 'articles-container__light'">
+            <div *ngFor="let item of stackProducts; let i = index" [ngClass]="currentDarkModeState ? 'articles-container__dark' : 'articles-container__light'">
                 <img class="articles-container__image" src="{{item.image}}" alt="a">
-                <p class="articles-container__title" [style.color]="currentDarkModeState ? 'white' : 'black'" >{{item.title}}</p>
+                <h3 class="articles-container__title" [style.color]="currentDarkModeState ? 'white' : 'black'" >{{item.title}}</h3>
                 <div class="articles-container__quantity">
-                    <mat-icon class="articles-container__quantity--icons">remove_circle</mat-icon>
+                    <mat-icon (click)="removeItemInCart(item)" class="articles-container__quantity--icons">remove_circle</mat-icon>
                     <p [style.color]="currentDarkModeState ? 'white' : 'black'" >{{item.quantity}}</p>
-                    <mat-icon class="articles-container__quantity--icons" >add_circle</mat-icon>
+                    <mat-icon (click)="addItemInCart(item)" class="articles-container__quantity--icons" >add_circle</mat-icon>
                 </div>
                 <div class="articles-container__prices">
-                    <p [style.color]="currentDarkModeState ? 'white' : 'black'" >??</p>
-                    <p [style.color]="currentDarkModeState ? 'white' : 'black'" >{{item.price}}$</p>
+                    <h4 [style.color]="currentDarkModeState ? 'white' : 'black'" >{{item.sum | number: '1.2-2'}}$</h4>
+                    <p [style.color]="currentDarkModeState ? 'white' : 'black'" >{{item.price | number: '1.2-2'}}$</p>
                 </div>
                 <mat-icon (click)="removeCartItem(item)" class="articles-container__quantity--icons" >delete_forever</mat-icon>
             </div>
@@ -23,9 +23,9 @@
                     <h1 [style.color]="currentDarkModeState ? 'white' : 'black'" >{{grandTotal | number: '1.2-2'}}$</h1>
                 </div>
                 <div class="pay-container__buttons">
-                    <button>Pay</button>
+                    <button >Pay</button>
                     <button (click)="removeAllCart()" >Delete everything</button>
-                    <button routerLink="/articles">Shop</button>
+                    <button routerLink="/articles">Continue shopping</button>
                 </div>
             </div>
         
