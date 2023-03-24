@@ -1,5 +1,5 @@
 <main [ngClass]="currentDarkModeState ? 'main-dark' : 'main-light'" > 
-    <ng-container class="x" *ngFor="let items of articlesList.slice(0, 20)">
+    <ng-container class="x" *ngFor="let items of articlesList">
         <div [ngClass]="currentDarkModeState ? 'products-dark' : 'products-light'">
             <img class="products__img" src="{{items.image}}" alt="">
             <div class="text-container">
@@ -7,7 +7,7 @@
             <p [style.color]="currentDarkModeState ? 'white' : 'black'" class="products__description">{{items.description}}</p>
             <p [style.color]="currentDarkModeState ? 'white' : 'black'" class="products__price">PRICE: {{items.price}} $</p>
             </div>
-            <button class="products__btn">Add to cart</button>
+            <button (click)="addArticleToCart(items)" class="products__btn">Add to cart</button>
         </div>
         </ng-container>
 </main>

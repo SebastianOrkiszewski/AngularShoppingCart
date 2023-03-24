@@ -1,22 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { DarkModeService } from 'src/app/shared/dark-mode.service';
+import { DarkModeService } from 'src/app/services/dark-mode.service';
+import { CartService } from 'src/app/services/cart.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.sass']
+  styleUrls: ['./header.component.sass'],
 })
 export class HeaderComponent implements OnInit {
-  currentDarkModeState: boolean = false
+  public counterItem!: number;
+  currentDarkModeState!: boolean;
 
-  constructor(private DarkModeService : DarkModeService){}
-  
+  constructor(
+    private DarkModeService: DarkModeService,
+    private CartService: CartService
+  ) {}
+
   ngOnInit(): void {
     this.DarkModeService.status.subscribe((data) => {
       this.currentDarkModeState = data;
-    })
+    });
+    this.CartService.getArticles().subscribe((res) => {
+      this.counterItem = this.CartService.getQuantity();
+    });
   }
 
   switchDarkModeState() {
-    this.DarkModeService.changeDarkModeState()
+    this.DarkModeService.changeDarkModeState();
   }
 }

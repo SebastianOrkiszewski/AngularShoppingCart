@@ -1,8 +1,8 @@
 <header>
     <div class="header">
-        <div class="shop-logo">
-            <mat-icon routerLink="/articles" class="shop-logo__icon">shop</mat-icon>
-            <h1 routerLink="/articles" class="shop-logo__name">Shop</h1>
+        <div routerLink="/articles" class="shop-logo">
+            <mat-icon class="shop-logo__icon">shop</mat-icon>
+            <h1  class="shop-logo__name">Shop</h1>
         </div>
         <div class="buttons">
             <button class="buttons__switcher" (click)="switchDarkModeState()">
@@ -11,7 +11,7 @@
             </button>
             <button  class="buttons__cart">
                 <mat-icon routerLink="/cart" class="buttons__cart--icon">shopping_cart</mat-icon>
-                <div class="buttons__cart--counter">5</div></button>
+                <div class="buttons__cart--counter">{{counterItem}}</div></button>
         </div>
     </div>
     
