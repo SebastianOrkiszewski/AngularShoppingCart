@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { DarkModeService } from 'src/app/shared/dark-mode.service';
-import { CartService } from 'src/app/shared/cart.service';
+import { DarkModeService } from 'src/app/services/dark-mode.service';
+import { CartService } from 'src/app/services/cart.service';
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.sass'],
 })
 export class CartComponent implements OnInit {
-  public stackProducts: any = [];
   public products: any = [];
   public grandTotal!: number;
 
-  currentDarkModeState: boolean = false;
+  currentDarkModeState!: boolean;
 
   constructor(
     private DarkModeService: DarkModeService,
@@ -25,18 +25,6 @@ export class CartComponent implements OnInit {
     this.CartService.getArticles().subscribe((res) => {
       this.products = res;
       this.grandTotal = this.CartService.getGrandTotal();
-      this.stackProducts = this.products.reduce(
-        (finalArray: any, current: any) => {
-          let obj = finalArray.find(
-            (item: any) => item.title === current.title
-          );
-          if (obj) {
-            return finalArray;
-          }
-          return finalArray.concat([current]);
-        },
-        []
-      );
     });
   }
   addItemInCart(item: any) {

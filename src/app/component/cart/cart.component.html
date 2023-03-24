@@ -1,7 +1,7 @@
 <ng-container *ngIf="products.length !=0">
     <main [ngClass]="currentDarkModeState ? 'filled-cart__dark' : 'filled-cart__light'" >
         <div class="articles-container">
-            <div *ngFor="let item of stackProducts; let i = index" [ngClass]="currentDarkModeState ? 'articles-container__dark' : 'articles-container__light'">
+            <div *ngFor="let item of products; let i = index" [ngClass]="currentDarkModeState ? 'articles-container__dark' : 'articles-container__light'">
                 <img class="articles-container__image" src="{{item.image}}" alt="a">
                 <h3 class="articles-container__title" [style.color]="currentDarkModeState ? 'white' : 'black'" >{{item.title}}</h3>
                 <div class="articles-container__quantity">
@@ -25,7 +25,7 @@
                 <div class="pay-container__buttons">
                     <button >Pay</button>
                     <button (click)="removeAllCart()" >Delete everything</button>
-                    <button routerLink="/articles">Continue shopping</button>
+                    <button  routerLink="/articles">Continue shopping</button>
                 </div>
             </div>
         

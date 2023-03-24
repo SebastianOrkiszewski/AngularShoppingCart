@@ -7,7 +7,8 @@ import { map } from 'rxjs';
 })
 export class ApiService {
 
-  private API_URL = 'https://api.escuelajs.co/api/v1/products'
+  private API_URL = 'https://fakestoreapi.com/products'
+  // private API_URL = 'https://api.escuelajs.co/api/v1/products'
  
 
   constructor(private http : HttpClient) { }

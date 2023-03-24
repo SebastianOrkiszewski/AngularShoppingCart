@@ -11,6 +11,6 @@ export class DarkModeService {
   constructor() { }
 
   changeDarkModeState(){
-    this.DarkModeState.next(!this.DarkModeState.value)
+    this.DarkModeState.next(!this.DarkModeState.value) 
   }
 }
