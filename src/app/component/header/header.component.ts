@@ -8,7 +8,7 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class HeaderComponent implements OnInit {
   public counterItem!: number;
-  currentDarkModeState!: boolean;
+  currentDarkModeState: boolean = false;
 
   constructor(
     private DarkModeService: DarkModeService,
@@ -19,12 +19,25 @@ export class HeaderComponent implements OnInit {
     this.DarkModeService.status.subscribe((data) => {
       this.currentDarkModeState = data;
     });
+
     this.CartService.getArticles().subscribe((res) => {
       this.counterItem = this.CartService.getQuantity();
     });
+
+    this.getDarkModeStorage();
   }
 
   switchDarkModeState() {
-    this.DarkModeService.changeDarkModeState();
+    if (this.currentDarkModeState == true) {
+      this.DarkModeService.changeDarkModeState(false);
+    } else {
+      this.DarkModeService.changeDarkModeState(true);
+    }
+    localStorage.setItem('currentDarkModeState',JSON.stringify(this.currentDarkModeState));
+  }
+
+  getDarkModeStorage() {
+    let data: any = localStorage.getItem('currentDarkModeState');
+    this.currentDarkModeState = JSON.parse(data);
   }
 }

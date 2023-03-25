@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DarkModeService {
-  private DarkModeState = new BehaviorSubject<boolean>(false)
+  private DarkModeState = new Subject<boolean>()
   status = this.DarkModeState.asObservable()
 
   constructor() { }
 
-  changeDarkModeState(){
-    this.DarkModeState.next(!this.DarkModeState.value) 
+  changeDarkModeState(xxx:boolean){
+    this.DarkModeState.next(xxx) 
   }
 }

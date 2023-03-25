@@ -20,11 +20,13 @@ export class CartService {
   }
 
   addArticleToCart(item: any) {
-    item.quantity += 1;
     item.sum = item.price + item.sum;
 
-    if (item.quantity === 1) {
+    if (item.quantity === 0) {
       this.cartItems.push(item);
+      item.quantity += 1;
+    } else {
+      item.quantity += 1;
     }
 
     this.getGrandTotal();
@@ -37,6 +39,7 @@ export class CartService {
     this.cartItems.map((item: any) => {
       quantity += item.quantity;
     });
+
     return quantity;
   }
 

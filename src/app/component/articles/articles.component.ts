@@ -9,8 +9,8 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./articles.component.sass'],
 })
 export class ArticlesComponent implements OnInit {
-  public articlesList: any;
-  currentDarkModeState!: boolean;
+  public articlesList: any = [];
+  currentDarkModeState: boolean = false;
 
   constructor(
     private api: ApiService,
@@ -19,6 +19,10 @@ export class ArticlesComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.DarkModeService.status.subscribe((data) => {
+      this.currentDarkModeState = data;
+    });
+
     this.api.getDetails().subscribe((res) => {
       this.articlesList = res;
       this.articlesList.forEach((a: any) => {
@@ -26,12 +30,15 @@ export class ArticlesComponent implements OnInit {
       });
     });
 
-    this.DarkModeService.status.subscribe((data) => {
-      this.currentDarkModeState = data;
-    });
+    this.getDarkModeStorage();
   }
 
   addArticleToCart(item: any) {
     this.CartService.addArticleToCart(item);
+  }
+
+  getDarkModeStorage() {
+    let data: any = localStorage.getItem('currentDarkModeState');
+    this.currentDarkModeState = JSON.parse(data);
   }
 }

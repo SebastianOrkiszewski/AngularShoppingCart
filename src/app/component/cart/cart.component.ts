@@ -26,6 +26,7 @@ export class CartComponent implements OnInit {
       this.products = res;
       this.grandTotal = this.CartService.getGrandTotal();
     });
+    this.getDarkModeStorage()
   }
   addItemInCart(item: any) {
     this.CartService.addItemInCart(item);
@@ -43,5 +44,10 @@ export class CartComponent implements OnInit {
 
   removeAllCart() {
     this.CartService.removeAllCart();
+  }
+
+  getDarkModeStorage(){
+    let data:any = localStorage.getItem('currentDarkModeState')
+    this.currentDarkModeState = JSON.parse(data)
   }
 }
