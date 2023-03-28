@@ -10,7 +10,8 @@ import { CartService } from 'src/app/share/services/cart.service';
 })
 export class ArticlesComponent implements OnInit {
   public articlesList: any = [];
-  currentDarkModeState: boolean = false;
+  public filterBy:string =""
+  public currentDarkModeState: boolean = false;
 
   constructor(
     private api: ApiService,
@@ -29,6 +30,10 @@ export class ArticlesComponent implements OnInit {
         Object.assign(a, { quantity: 0, total: a.price, sum: a.price});
       });
     });
+
+    this.CartService.search.subscribe((value) =>{
+      this.filterBy = value
+    })
 
     this.getDarkModeStorage();
   }

@@ -1,5 +1,5 @@
 <main [ngClass]="currentDarkModeState ? 'main-dark' : 'main-light'" > 
-    <ng-container class="x" *ngFor="let items of articlesList">
+    <ng-container class="x" *ngFor="let items of articlesList | filter:filterBy:'title'">
         <div [ngClass]="currentDarkModeState ? 'products-dark' : 'products-light'">
             <img class="products__img" src="{{items.image}}" alt="">
             <div class="text-container">
