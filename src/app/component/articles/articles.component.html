@@ -1,5 +1,9 @@
 <main [ngClass]="currentDarkModeState ? 'main-dark' : 'main-light'" > 
-    <ng-container class="x" *ngFor="let items of articlesList">
+    <button (click)="filterCategory('')" >All product</button>
+    <button (click)="filterCategory('electronics')" >Electronic</button>
+    <button (click)="filterCategory('clothes')" >Clothes</button>
+    <button (click)="filterCategory('jewelery')" >Jewelery</button>
+    <ng-container class="x" *ngFor="let items of filterArticles | filter:filterBy:'title'">
         <div [ngClass]="currentDarkModeState ? 'products-dark' : 'products-light'">
             <img class="products__img" src="{{items.image}}" alt="">
             <div class="text-container">

@@ -10,8 +10,7 @@ import { CartService } from 'src/app/share/services/cart.service';
 export class CartComponent implements OnInit {
   public products: any = [];
   public grandTotal!: number;
-
-  currentDarkModeState!: boolean;
+  public currentDarkModeState!: boolean;
 
   constructor(
     private DarkModeService: DarkModeService,

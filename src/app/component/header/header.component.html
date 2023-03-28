@@ -18,14 +18,8 @@
 </header>
 <nav>
     <div [ngClass]="currentDarkModeState ? 'navi-dark' : 'navi-light'">
-        <input class="navi__input" type="text" placeholder="search">
-        <select class="navi__select"  name="" id="" >
-            <option value="">All product</option>
-            <option value="">Electronic</option>
-            <option value="">Fashion</option>
-            <option value="">Jewelery</option>
-        </select>
-        <button class="navi__search" >Search<mat-icon>search</mat-icon>
+        <input class="navi__input" type="text" [(ngModel)]="searchItem" (keyup.enter)="search(searchItem)" placeholder="search">
+        <button (click)="search(searchItem)" class="navi__search" >Search<mat-icon>search</mat-icon>
         </button>
     </div>
 </nav>

@@ -8,7 +8,8 @@ import { CartService } from 'src/app/share/services/cart.service';
 })
 export class HeaderComponent implements OnInit {
   public counterItem!: number;
-  currentDarkModeState: boolean = false;
+  public searchItem: string = '';
+  public currentDarkModeState: boolean = false;
 
   constructor(
     private DarkModeService: DarkModeService,
@@ -39,5 +40,12 @@ export class HeaderComponent implements OnInit {
   getDarkModeStorage() {
     let data: any = localStorage.getItem('currentDarkModeState');
     this.currentDarkModeState = JSON.parse(data);
+  }
+
+  search(event: any) {
+    this.searchItem = event;
+    this.CartService.search.next(this.searchItem);
+    this.searchItem = '';
+    console.log(this.searchItem);
   }
 }
