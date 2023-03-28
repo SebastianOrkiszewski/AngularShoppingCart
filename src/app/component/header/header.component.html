@@ -1,9 +1,16 @@
 <header>
     <div class="header">
         <div routerLink="/articles" class="shop-logo">
-            <mat-icon class="shop-logo__icon">shop</mat-icon>
-            <h1  class="shop-logo__name">Shop</h1>
+            <h1><mat-icon class="shop-logo__icon">shop</mat-icon></h1>
+            <h1 class="shop-logo__name">Shop</h1>
         </div>
+
+
+        <div class="search" >
+            <input class="search__input" type="text" [(ngModel)]="searchItem" (keyup.enter)="search(searchItem)" placeholder="search">
+            <button (click)="search(searchItem)" class="search__button" ><mat-icon class="search__button--icon">search</mat-icon></button>
+        </div>
+        
         <div class="buttons">
             <button class="buttons__switcher" (click)="switchDarkModeState()">
                 <mat-icon class="buttons__switcher--light" *ngIf="currentDarkModeState" >wb_sunny</mat-icon>
@@ -16,11 +23,7 @@
     </div>
     
 </header>
-<nav>
-    <div [ngClass]="currentDarkModeState ? 'navi-dark' : 'navi-light'">
-        <input class="navi__input" type="text" [(ngModel)]="searchItem" (keyup.enter)="search(searchItem)" placeholder="search">
-        <button (click)="search(searchItem)" class="navi__search" >Search<mat-icon>search</mat-icon>
-        </button>
-    </div>
-</nav>
+
+    
+
 
