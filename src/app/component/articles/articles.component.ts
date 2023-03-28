@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/services/api.service';
-import { DarkModeService } from 'src/app/services/dark-mode.service';
-import { CartService } from 'src/app/services/cart.service';
+import { ApiService } from 'src/app/share/services/api.service';
+import { DarkModeService } from 'src/app/share/services/dark-mode.service';
+import { CartService } from 'src/app/share/services/cart.service';
 
 @Component({
   selector: 'app-articles',
@@ -26,7 +26,7 @@ export class ArticlesComponent implements OnInit {
     this.api.getDetails().subscribe((res) => {
       this.articlesList = res;
       this.articlesList.forEach((a: any) => {
-        Object.assign(a, { quantity: 0, total: a.price, sum: a.price });
+        Object.assign(a, { quantity: 0, total: a.price, sum: a.price});
       });
     });
 
@@ -35,6 +35,7 @@ export class ArticlesComponent implements OnInit {
 
   addArticleToCart(item: any) {
     this.CartService.addArticleToCart(item);
+    console.log(this.articlesList);
   }
 
   getDarkModeStorage() {

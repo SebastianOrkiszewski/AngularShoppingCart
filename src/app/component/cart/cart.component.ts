@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DarkModeService } from 'src/app/services/dark-mode.service';
-import { CartService } from 'src/app/services/cart.service';
+import { DarkModeService } from 'src/app/share/services/dark-mode.service';
+import { CartService } from 'src/app/share/services/cart.service';
 
 @Component({
   selector: 'app-cart',

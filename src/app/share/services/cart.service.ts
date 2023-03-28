@@ -21,17 +21,17 @@ export class CartService {
 
   addArticleToCart(item: any) {
     item.sum = item.price + item.sum;
-
     if (item.quantity === 0) {
       this.cartItems.push(item);
       item.quantity += 1;
+      
     } else {
       item.quantity += 1;
     }
 
     this.getGrandTotal();
     this.articleList.next(this.cartItems);
-    console.log(this.cartItems);
+    
   }
 
   getQuantity(): number {
@@ -63,12 +63,14 @@ export class CartService {
         this.cartItems.splice(index, 1);
       }
     });
+    item.xxx = item.xxx - 1
     this.articleList.next(this.cartItems);
   }
 
   removeAllCart() {
     this.cartItems = [];
     this.articleList.next(this.cartItems);
+    
   }
 
   getGrandTotal(): number {

@@ -10,7 +10,7 @@ export class DarkModeService {
 
   constructor() { }
 
-  changeDarkModeState(xxx:boolean){
-    this.DarkModeState.next(xxx) 
+  changeDarkModeState(value:boolean){
+    this.DarkModeState.next(value) 
   }
 }
