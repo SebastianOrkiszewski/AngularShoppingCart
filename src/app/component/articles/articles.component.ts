@@ -10,7 +10,7 @@ import { CartService } from 'src/app/share/services/cart.service';
 })
 export class ArticlesComponent implements OnInit {
   public articlesList: any;
-  public filterBy: string ="";
+  public filterBy: string = '';
   public filterArticles: any;
   public currentDarkModeState: boolean = false;
 
@@ -29,18 +29,20 @@ export class ArticlesComponent implements OnInit {
       this.articlesList = res;
       this.filterArticles = res;
       this.articlesList.forEach((a: any) => {
-        if(a.category === "women's clothing" || a.category === "men's clothing"){
-          a.category = "clothes"
+        if (
+          a.category === "women's clothing" || a.category === "men's clothing") {
+          a.category = 'clothes';
         }
-        Object.assign(a, { quantity: 0, total: a.price, sum: a.price});
+        Object.assign(a, { quantity: 0, total: a.price, sum: a.price });
       });
     });
 
-    this.CartService.search.subscribe((value) =>{
-      this.filterBy = value
-    })
+    this.CartService.search.subscribe((value) => {
+      this.filterBy = value;
+    });
 
     this.getDarkModeStorage();
+    this.CartService.search.next('');
   }
 
   addArticleToCart(item: any) {
@@ -53,13 +55,12 @@ export class ArticlesComponent implements OnInit {
     this.currentDarkModeState = JSON.parse(data);
   }
 
-  filterCategory(category:string){
-    this.filterArticles = this.articlesList
-    .filter((a:any)=>{
-      if(a.category == category || category==''){
+  filterCategory(category: string) {
+    this.CartService.search.next('');
+    this.filterArticles = this.articlesList.filter((a: any) => {
+      if (a.category == category || category == '') {
         return a;
       }
-    })
+    });
   }
-  
 }
