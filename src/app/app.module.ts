@@ -9,6 +9,7 @@ import { ArticlesComponent } from './component/articles/articles.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
+import { FilterPipe } from './share/pipe/filter.pipe';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     HeaderComponent,
     ArticlesComponent,
-    CartComponent
+    CartComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
