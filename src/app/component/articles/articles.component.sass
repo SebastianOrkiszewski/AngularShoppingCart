@@ -3,6 +3,7 @@ $mainDarkColor: #292929
 $headerColor: linear-gradient(90deg, #6a5acd 0%, #956a7d 100%)
 $productsDarkColor: #1d1d1d94
 $productsLightColor: #FFFFFF
+$breakpoints: 767px
 
 @mixin hidden-text
     max-width: 250px
@@ -40,6 +41,8 @@ $productsLightColor: #FFFFFF
     flex-direction: row
     position: absolute
     top: 1%
+    @media (max-width: $breakpoints)
+        display: none
 
 .category__button
     background-color: #ffffff00

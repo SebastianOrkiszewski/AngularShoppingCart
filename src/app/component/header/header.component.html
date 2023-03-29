@@ -18,6 +18,10 @@
                 <div class="buttons__cart--counter">{{counterItem}}</div></button>
         </div>
     </div>
+    <div class="search__mobile" >
+        <input class="search__input" type="text" [(ngModel)]="searchItem" (keyup.enter)="search(searchItem)" placeholder="search">
+        <button (click)="search(searchItem)" class="search__button" ><mat-icon class="search__button--icon">search</mat-icon></button>
+    </div>
     
 </header>
 

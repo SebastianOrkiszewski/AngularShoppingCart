@@ -6,6 +6,7 @@ $transparentColor: #ffffff00
 $buttonHoverColor: #ffffff1c
 $lightIcon: #f6fa1fe3
 $darkIcon: #0000008c
+$breakpoints: 767px
 
 @mixin navIconSize
     font-size: 40px
@@ -101,6 +102,19 @@ $darkIcon: #0000008c
     margin: 0 5% 0 5%
     height: 60px
     width: 600px
+    @media (max-width: $breakpoints)
+        display: none
+
+.search__mobile
+    background: $headerColor
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 50px
+    width: 100%
+    margin-top: -1%
+    @media (min-width: $breakpoints)
+        display: none
 
 .search__input
     font-family: Rubik
@@ -116,6 +130,10 @@ $darkIcon: #0000008c
     border-radius: 5px 0 0 5px
     &::placeholder
         color: #ffffffb7
+    @media (max-width: $breakpoints)
+        margin-left: 0
+        height: 90%
+        width: 50%
 
 .search__button
     display: flex
@@ -127,6 +145,8 @@ $darkIcon: #0000008c
     padding: 0 15px 0 15px
     border: none
     border-radius: 0 5px 5px 0
+    @media (max-width: $breakpoints)
+        margin-left: 0
 
 .search__button--icon
     transform: scale(1.7)
