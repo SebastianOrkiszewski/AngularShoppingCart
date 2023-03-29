@@ -1,12 +1,11 @@
-$mainLightColor: #FFFFFF
+$mainLightColor: #f0f0f0c7
 $mainDarkColor: #292929
 $headerColor: linear-gradient(90deg, #6a5acd 0%, #956a7d 100%)
 $productsDarkColor: #1d1d1d94
-$productsLightColor: #f0f0f0c7
+$productsLightColor: #FFFFFF
 
 @mixin hidden-text
-    max-width: 300px
-    text-size
+    max-width: 250px
     display: block
     overflow: hidden
     text-overflow: ellipsis
@@ -14,59 +13,73 @@ $productsLightColor: #f0f0f0c7
 
 .main-light
     background-color: $mainLightColor
+    position: relative
     display: grid
     grid-gap: 25px
-    place-items: center
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr))
-    overflow: scroll
+    place-items: start center
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr))
+    overflow: auto
     width: 100%
     height: 92vh
     padding: 3% 10% 3% 10%
 
 .main-dark
     background-color: $mainDarkColor
+    position: relative
     display: grid
     grid-gap: 25px
-    place-items: center
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr))
+    place-items: start center
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr))
     overflow: auto
     width: 100%
     height: 92vh
     padding: 3% 10% 3% 10%
 
+.category
+    display: flex
+    flex-direction: row
+    position: absolute
+    top: 1%
+
+.category__button
+    background-color: #ffffff00
+    font-family: Rubik
+    font-size: 18px
+    margin: 0 12px 0 12px
+    border: 0
+    &:active
+        transform: scale(0.95)
+
 .products-light
     background-color: $productsLightColor
     display: flex
     flex-direction: column
-    justify-content: center
-    align-items: center
     border: 0
-    border-radius: 7px
-    min-width: 300px
-    min-width: 350px
-    padding: 2%
+    min-width: 250px
+    margin-top: 20px
+    &:hover
+        img
+            transform: scale(0.95)
 
 .products-dark
     background-color: $productsDarkColor
     display: flex
     flex-direction: column
-    justify-content: center
-    align-items: center
     border: 0
-    border-radius: 7px
-    min-width: 300px
-    min-width: 350px
-    padding: 2%
+    min-width: 250px
+    margin-top: 20px
+    &:hover
+        img
+            transform: scale(0.95)
 
 .products__img
-    width: 200px
+    width: 250px
     height: 250px
-    border-radius: 7px
 
 .text-container
     display: flex
-    flex-direction: column
-    justify-content: flex-start
+    flex-direction: row
+    justify-content: space-between
 
 .products__title
     @include hidden-text
@@ -81,10 +94,9 @@ $productsLightColor: #f0f0f0c7
 
 .products__btn
     background: $headerColor
-    color: $mainLightColor
-    width: 30%
-    padding: 3% 3% 3% 3%
+    color: $productsLightColor
+    width: 20%
     border: 0
-    border-radius: 4px
+
     &:active
         transform: scale(0.98)

@@ -4,13 +4,10 @@
             <h1><mat-icon class="shop-logo__icon">shop</mat-icon></h1>
             <h1 class="shop-logo__name">Shop</h1>
         </div>
-
-
         <div class="search" >
             <input class="search__input" type="text" [(ngModel)]="searchItem" (keyup.enter)="search(searchItem)" placeholder="search">
             <button (click)="search(searchItem)" class="search__button" ><mat-icon class="search__button--icon">search</mat-icon></button>
         </div>
-        
         <div class="buttons">
             <button class="buttons__switcher" (click)="switchDarkModeState()">
                 <mat-icon class="buttons__switcher--light" *ngIf="currentDarkModeState" >wb_sunny</mat-icon>

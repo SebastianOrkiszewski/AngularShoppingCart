@@ -1,17 +1,18 @@
 <main [ngClass]="currentDarkModeState ? 'main-dark' : 'main-light'" > 
-    <button (click)="filterCategory('')" >All product</button>
-    <button (click)="filterCategory('electronics')" >Electronic</button>
-    <button (click)="filterCategory('clothes')" >Clothes</button>
-    <button (click)="filterCategory('jewelery')" >Jewelery</button>
+    <div class="category">
+    <button class="category__button" (click)="filterCategory('')" [style.color]="currentDarkModeState ? 'white' : 'black'" >All product</button>
+    <button class="category__button" (click)="filterCategory('electronics')" [style.color]="currentDarkModeState ? 'white' : 'black'" >Electronic</button>
+    <button class="category__button" (click)="filterCategory('clothes')" [style.color]="currentDarkModeState ? 'white' : 'black'" >Clothes</button>
+    <button class="category__button" (click)="filterCategory('jewelery')" [style.color]="currentDarkModeState ? 'white' : 'black'">Jewelery</button>
+    </div>
     <ng-container class="x" *ngFor="let items of filterArticles | filter:filterBy:'title'">
         <div [ngClass]="currentDarkModeState ? 'products-dark' : 'products-light'">
             <img class="products__img" src="{{items.image}}" alt="">
-            <div class="text-container">
             <p [style.color]="currentDarkModeState ? 'white' : 'black'" class="products__title">{{items.title}}</p>
-            <p [style.color]="currentDarkModeState ? 'white' : 'black'" class="products__description">{{items.description}}</p>
-            <p [style.color]="currentDarkModeState ? 'white' : 'black'" class="products__price">PRICE: {{items.price}} $</p>
-            </div>
-            <button (click)="addArticleToCart(items)" class="products__btn">Add to cart</button>
+            <div class="text-container">
+                <p [style.color]="currentDarkModeState ? 'white' : 'black'" class="products__price">PRICE: {{items.price}} $</p>
+                <button (click)="addArticleToCart(items)" class="products__btn"><mat-icon>shopping_cart</mat-icon></button>
+            </div> 
         </div>
         </ng-container>
 </main>
