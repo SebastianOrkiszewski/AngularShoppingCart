@@ -13,6 +13,7 @@ export class ArticlesComponent implements OnInit {
   public filterBy: string = '';
   public filterArticles: any;
   public currentDarkModeState: boolean = false;
+  
 
   constructor(
     private api: ApiService,
@@ -24,7 +25,7 @@ export class ArticlesComponent implements OnInit {
     this.DarkModeService.status.subscribe((data) => {
       this.currentDarkModeState = data;
     });
-
+    
     this.api.getDetails().subscribe((res) => {
       this.articlesList = res;
       this.filterArticles = res;
@@ -63,4 +64,6 @@ export class ArticlesComponent implements OnInit {
       }
     });
   }
+
+  
 }

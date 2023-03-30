@@ -1,30 +1,213 @@
-$mainLightColor: #FFFFFF
-$mainDarkColor: #292929
+$mainLightColor: #fffffffb
+$mainDarkColor: #0e0d0dfd
 $ButtonColor: linear-gradient(90deg, #6a5acd 0%, #956a7d 100%)
 $productsDarkColor: #1d1d1d94
 $productsLightColor: #f0f0f0c7
+$breakpoints: 767px
+$smallBreakpoints: 512px
 
 @mixin size-text
     font-size: 100%
     text-align: center
 
-.empty-cart__light
+.cart__container
+    display: grid
+    grid-template-columns: 70% 30%
+    z-index: 3
+
+.cart__background
+    background-color: #0a0a0a4d
+    backdrop-filter: blur(3.5px)
+    z-index: 2
+    position: fixed
+    width: 100%
+    height: 100%
+    @media (max-width: $breakpoints)
+        display: none
+
+.filled-cart__light
     background-color: $mainLightColor
+    position: fixed
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
+    margin: 0
+    width: 500px
+    padding: 0 2% 0 2%
+    height: 92vh
+    z-index: 2
+    right: 0%
+    @media (max-width: $breakpoints)
+        width: 100vw
+        height: 84vh
+
+.filled-cart__dark
+    background-color: $mainDarkColor
+    position: fixed
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
+    margin: 0
+    width: 500px
+    padding: 0 2% 0 2%
+    height: 92vh
+    z-index: 2
+    right: 0%
+    @media (max-width: $breakpoints)
+        width: 100vw
+        height: 84vh
+
+.exit__cart
+    position: absolute
+    left: 0
+    color: grey
+    transform: scale(1.1)
+    &:active
+        transform: scale(0.98)
+
+.articles-container
+    display: flex
+    flex-direction: column
+    overflow: auto
+
+.articles-container__light
+    background-color: $productsLightColor
     display: flex
     flex-direction: column
     justify-content: center
+    align-items: flex-start
+    height: 22vh
+    margin: 4% 1% 0 0
+    padding: 10px
+    border: 0
+    border-radius: 7px
+    @media (max-width: $breakpoints)
+        width: 90vw
+        height: 26vh
+
+.articles-container__dark
+    background-color: $productsDarkColor
+    display: flex
+    flex-direction: column
+    justify-content: space-around
+    align-items: flex-start
+    height: 22vh
+    margin: 4% 1% 0 0
+    padding: 10px
+    border: 0
+    border-radius: 7px
+    @media (max-width: $breakpoints)
+        width: 90vw
+        height: 26vh
+
+.articles-container__rows
+    display: flex
+    flex-direction: row
+    justify-content: center
     align-items: center
+
+.articles-container__title
+    width: 280px
+    margin: 0 0 10px 0
+    display: block
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+
+.articles-container__image
+    width: 150px
+    height: 150px
+    border-radius: 5px
+    margin-right: 45px
+
+.articles-container__quantity
+    display: flex
+    flex-direction: row
+    align-items: center
+    margin-right: 45px
+    p
+        margin: 0 6px 0 6px
+        font-size: 20px
+    @media (max-width: $smallBreakpoints)
+        display: none
+
+.articles-container__quantity--icons
+    transform: scale(1.2)
+    color: grey
+    &:active
+        transform: scale(1.12)
+
+.articles-container__prices
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    width: 60px
+    margin-right: 45px
+    p
+        margin-top: 5px
+    h4
+        margin: 0
+    @media (max-width: $smallBreakpoints)
+        display: none
+
+.pay-container
     width: 100%
-    height: 92vh
+    padding: 10px
+    border-top: 2px solid grey
+    margin-bottom: 1%
+
+.pay-container__value
+    display: flex
+    justify-content: space-between
+    padding-bottom: 10px
+    h1
+        margin: 0
+
+.pay-container__buttons
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    button
+        background: $ButtonColor
+        color: $mainLightColor
+        width: 70%
+        padding: 3% 3% 3% 3%
+        border: 0
+        margin: 5px
+        border-radius: 4px
+        &:active
+            transform: scale(0.98)
+
+    .empty-cart__light
+        background-color: $mainLightColor
+        position: fixed
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        z-index: 2
+        width: 500px
+        height: 92vh
+        right: 0%
+    @media (max-width: $breakpoints)
+        width: 100vw
 
 .empty-cart__dark
     background-color: $mainDarkColor
+    position: fixed
     display: flex
     flex-direction: column
     justify-content: center
     align-items: center
-    width: 100%
+    z-index: 2
+    width: 500px
     height: 92vh
+    right: 0%
+    @media (max-width: $breakpoints)
+        width: 100vw
 
 .empty-cart__logo
     min-width: 200px
@@ -35,6 +218,7 @@ $productsLightColor: #f0f0f0c7
     padding: 0 20px 0 20px
 
 .empty-cart__news
+    margin: 2%
     @include size-text
 
 .empty-cart__btn
@@ -48,126 +232,3 @@ $productsLightColor: #f0f0f0c7
     border-radius: 4px
     &:active
         transform: scale(0.98)
-
-.filled-cart__light
-    background-color: $mainLightColor
-    display: grid
-    grid-template-columns: 70% 30%
-    width: 100%
-    height: 80vh
-    padding: 0 10% 0 10%
-
-.filled-cart__dark
-    background-color: $mainDarkColor
-    display: grid
-    grid-template-columns: 70% 30%
-    width: 100%
-    height: 92vh
-    padding: 0 10% 0 10%
-
-.articles-container
-    display: flex
-    flex-direction: column
-    overflow: auto
-
-.articles-container__light
-    background-color: $productsLightColor
-    display: flex
-    flex-direction: row
-    justify-content: space-around
-    align-items: center
-    height: 20vh
-    margin: 20px 20px 0 0
-    padding: 10px
-    border: 0
-    border-radius: 7px
-
-.articles-container__dark
-    background-color: $productsDarkColor
-    display: flex
-    flex-direction: row
-    justify-content: space-around
-    align-items: center
-    height: 20vh
-    margin: 20px 20px 0 0
-    padding: 10px
-    border: 0
-    border-radius: 7px
-
-.articles-container__image
-    width: 150px
-    height: 150px
-    border-radius: 5px
-
-.articles-container__title
-    width: 200px
-    text-size
-    display: block
-    overflow: hidden
-    text-overflow: ellipsis
-    white-space: nowrap
-
-.articles-container__quantity
-    display: flex
-    flex-direction: row
-    align-items: center
-    p
-        margin: 0 6px 0 6px
-        font-size: 20px
-
-.articles-container__quantity--icons
-    transform: scale(1.2)
-    color: grey
-    &:active
-        transform: scale(1.12)
-
-.articles-container__prices
-    display: flex
-    flex-direction: column
-    align-items: flex-end
-    width: 60px
-    p
-        margin-top: 5px
-    h4
-        margin: 0
-
-.pay-container__light
-    background-color: $productsLightColor
-    min-height: 230px
-    height: 30%
-    margin: 20px 0 0 20px
-    padding: 10px
-    border: 0
-    border-radius: 7px
-
-.pay-container__dark
-    background-color: $productsDarkColor
-    min-height: 230px
-    height: 30%
-    margin: 20px 0 0 20px
-    padding: 10px
-    border: 0
-    border-radius: 7px
-
-.pay-container__value
-    display: flex
-    flex-direction: row
-    justify-content: space-between
-    padding-bottom: 10px
-    h1
-        margin: 0
-
-.pay-container__buttons
-    display: flex
-    flex-direction: column
-    align-items: center
-    button
-        background: $ButtonColor
-        color: $mainLightColor
-        margin: 5px 0 5px 0
-        width: 70%
-        padding: 3% 3% 3% 3%
-        border: 0
-        border-radius: 4px
-        &:active
-            transform: scale(0.98)

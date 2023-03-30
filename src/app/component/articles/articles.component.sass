@@ -13,6 +13,7 @@ $breakpoints: 767px
     white-space: nowrap
 
 .main-light
+    z-index: 1
     background-color: $mainLightColor
     position: relative
     display: grid
@@ -23,8 +24,11 @@ $breakpoints: 767px
     width: 100%
     height: 92vh
     padding: 3% 10% 3% 10%
+    @media (max-width: $breakpoints)
+        height: 84vh
 
 .main-dark
+    z-index: 1
     background-color: $mainDarkColor
     position: relative
     display: grid
@@ -35,6 +39,8 @@ $breakpoints: 767px
     width: 100%
     height: 92vh
     padding: 3% 10% 3% 10%
+    @media (max-width: $breakpoints)
+        height: 84vh
 
 .category
     display: flex
@@ -103,3 +109,17 @@ $breakpoints: 767px
 
     &:active
         transform: scale(0.98)
+
+// .sidebar
+//     right: -30%
+
+// .sidebar__active
+//     position: fixed
+//     width: 30%
+//     height: 92vh
+//     top: 8vh
+//     right: 0%
+//     background-color: black
+
+//     li
+//         color: white

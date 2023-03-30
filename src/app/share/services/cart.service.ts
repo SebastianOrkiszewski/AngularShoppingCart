@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -8,6 +8,8 @@ export class CartService {
   public cartItems: any = [];
   public articleList = new BehaviorSubject<any>([]);
   public search = new BehaviorSubject<string>('');
+  public showCart = new Subject<boolean>();
+  showCartState = this.showCart.asObservable();
 
   constructor() {}
 
@@ -25,14 +27,12 @@ export class CartService {
     if (item.quantity === 0) {
       this.cartItems.push(item);
       item.quantity += 1;
-      
     } else {
       item.quantity += 1;
     }
 
     this.getGrandTotal();
     this.articleList.next(this.cartItems);
-    
   }
 
   getQuantity(): number {
@@ -64,14 +64,13 @@ export class CartService {
         this.cartItems.splice(index, 1);
       }
     });
-    item.xxx = item.xxx - 1
+    item.xxx = item.xxx - 1;
     this.articleList.next(this.cartItems);
   }
 
   removeAllCart() {
     this.cartItems = [];
     this.articleList.next(this.cartItems);
-    
   }
 
   getGrandTotal(): number {
@@ -80,5 +79,9 @@ export class CartService {
       grandTotal += a.sum;
     });
     return grandTotal;
+  }
+
+  changeShowCart(value: boolean) {
+    this.showCart.next(value);
   }
 }

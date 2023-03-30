@@ -11,6 +11,7 @@ export class CartComponent implements OnInit {
   public products: any = [];
   public grandTotal!: number;
   public currentDarkModeState!: boolean;
+  public cartState: boolean = false
 
   constructor(
     private DarkModeService: DarkModeService,
@@ -20,6 +21,10 @@ export class CartComponent implements OnInit {
     this.DarkModeService.status.subscribe((data) => {
       this.currentDarkModeState = data;
     });
+
+    this.CartService.showCartState.subscribe((data) => {
+      this.cartState = data;
+    })
 
     this.CartService.getArticles().subscribe((res) => {
       this.products = res;
@@ -48,5 +53,13 @@ export class CartComponent implements OnInit {
   getDarkModeStorage(){
     let data:any = localStorage.getItem('currentDarkModeState')
     this.currentDarkModeState = JSON.parse(data)
+  }
+
+  switchCartState() {
+    if (this.cartState == true) {
+      this.CartService.changeShowCart(false);
+    } else {
+      this.CartService.changeShowCart(true);
+    }
   }
 }
