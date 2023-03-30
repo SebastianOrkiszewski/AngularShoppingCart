@@ -64,7 +64,6 @@ export class CartService {
         this.cartItems.splice(index, 1);
       }
     });
-    item.xxx = item.xxx - 1;
     this.articleList.next(this.cartItems);
   }
 
