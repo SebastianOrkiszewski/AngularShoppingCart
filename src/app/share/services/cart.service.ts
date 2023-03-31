@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
+import { ApiService } from './api.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +13,7 @@ export class CartService {
   public showCart = new Subject<boolean>();
   showCartState = this.showCart.asObservable();
 
-  constructor() {}
+  constructor(private router:Router) {}
 
   getArticles() {
     return this.articleList.asObservable();
@@ -64,12 +66,14 @@ export class CartService {
         this.cartItems.splice(index, 1);
       }
     });
+    item.quantity = 0
     this.articleList.next(this.cartItems);
   }
 
   removeAllCart() {
     this.cartItems = [];
     this.articleList.next(this.cartItems);
+    this.router.navigate(['/**']).then(() => { this.router.navigate(['/articles']); });
   }
 
   getGrandTotal(): number {

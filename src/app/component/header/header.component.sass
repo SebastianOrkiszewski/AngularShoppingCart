@@ -88,12 +88,30 @@ $breakpoints: 767px
 
 .buttons__cart--counter
     background: rgba(243, 13, 13, 0.863)
-    color: white
+    color: $defaultColor
     border-radius: 100px
     font-size: 13px
     margin: 0 10% -10% -10%
     padding: 2px 6px 2px 6px
     opacity: 0.9
+
+.buttons__login
+    font-family: Rubik
+    color: $defaultColor
+    border: 1px solid $buttonHoverColor
+    border-radius: 7px
+    font-size: 1.1rem
+    background: 0
+    padding: 7px
+    cursor: pointer
+    &:hover
+        background-color: $buttonHoverColor
+        border-radius: 7px
+    &:active
+        transform: scale(0.98)
+
+.buttons__login--account
+    @include navIconSize
 
 .search
     display: flex

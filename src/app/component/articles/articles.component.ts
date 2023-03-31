@@ -53,6 +53,8 @@ export class ArticlesComponent implements OnInit {
     console.log(this.articlesList);
   }
 
+  
+
   getDarkModeStorage() {
     let data: any = localStorage.getItem('currentDarkModeState');
     this.currentDarkModeState = JSON.parse(data);
