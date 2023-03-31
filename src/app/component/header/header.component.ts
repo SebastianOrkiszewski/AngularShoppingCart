@@ -66,5 +66,6 @@ export class HeaderComponent implements OnInit {
 
   logout(): void {
     this.afAuth.signOut();
+    this.CartService.removeAllCart()
   }
 }
