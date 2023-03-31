@@ -1,4 +1,4 @@
-<main class="login__component" >
+<main [ngClass]="currentDarkModeState ? 'login__dark' : 'login__light'" >
     <form class="login__container" [formGroup]="loginForm" (ngSubmit)="loginUser()" type="">
         <label for="">Email</label>
         <input type="email" formControlName="email" >
