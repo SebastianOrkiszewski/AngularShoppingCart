@@ -1,13 +1,14 @@
-<main class="login__component">
-    <div class="login__container">
+<main class="login__component" >
+    <form class="login__container" [formGroup]="loginForm" (ngSubmit)="loginUser()" type="">
         <label for="">Email</label>
-        <input type="text" name="" id="">
+        <input type="email" formControlName="email" >
         <label for="">Password</label>
-        <input type="text">
-        <button>Sign In</button>
+        <input type="password" formControlName="password">
+        <button type="submit">Sign In</button>
+    </form>
         <div class="login__information">
             <p>Email: test@test.com</p>
-            <p>Password: Test123</p>
+            <p>Password: test123</p>
         </div>
-    </div>
+    
 </main>
