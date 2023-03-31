@@ -12,7 +12,7 @@
             <p [style.color]="currentDarkModeState ? 'white' : 'black'" class="products__title">{{items.title}}</p>
             <div class="text-container">
                 <p [style.color]="currentDarkModeState ? 'white' : 'black'" class="products__price">PRICE: {{items.price}} $</p>
-                <button (click)="addArticleToCart(items)" class="products__btn"><mat-icon>shopping_cart</mat-icon></button>
+                <button [disabled]="!(afAuth.user | async)" (click)="addArticleToCart(items)" class="products__btn"><mat-icon>shopping_cart</mat-icon></button>
             </div> 
         </div>
         </ng-container> 
