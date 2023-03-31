@@ -13,11 +13,16 @@
                 <mat-icon class="buttons__switcher--light" *ngIf="currentDarkModeState" >wb_sunny</mat-icon>
                 <mat-icon class="buttons__switcher--dark" *ngIf="!currentDarkModeState" >brightness_2</mat-icon>
             </button>
-            <button  class="buttons__cart">
+            <button *ngIf="(afAuth.user | async)" class="buttons__cart">
                 <mat-icon (click)="switchCartState()" class="buttons__cart--icon">shopping_cart</mat-icon>
-                <div class="buttons__cart--counter">{{counterItem}}</div></button>
-            <button class="button__login" routerLink="/login" >
-                Sign in</button>
+                <div class="buttons__cart--counter">{{counterItem}}</div>
+                <button (click)="logout()">
+                    Sign Out
+                </button>
+            </button>
+            <button *ngIf="!(afAuth.user | async)" class="button__login" routerLink="/login" >Sign in
+            </button>
+                
         </div>
     </div>
     <div class="search__mobile" >
@@ -26,6 +31,9 @@
     </div>
     
 </header>
+
+
+
 
     
 

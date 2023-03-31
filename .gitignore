@@ -44,6 +44,6 @@ testem.log
 Thumbs.db
 
 # Firebase
-.firebase
+.firebaserc
 *-debug.log
 .runtimeconfig.json
