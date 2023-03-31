@@ -12,6 +12,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { FilterPipe } from './share/pipe/filter.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './component/login/login.component';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire/compat';
+
+
+
 
 
 @NgModule({
@@ -30,7 +35,8 @@ import { LoginComponent } from './component/login/login.component';
     MatIconModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "login-6fd7d": {
+      "hosting": {
+        "shop": [
+          "login-6fd7d"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "login-6fd7d"
+  }
+}
