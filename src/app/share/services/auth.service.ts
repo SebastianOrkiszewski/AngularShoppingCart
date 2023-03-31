@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ export class AuthService {
 
   userLoggedIn: boolean;      
 
-  constructor(private afAuth: AngularFireAuth) {
+  constructor(private afAuth: AngularFireAuth, private router: Router) {
       this.userLoggedIn = false;
 
       this.afAuth.onAuthStateChanged((user) => {              
@@ -24,10 +25,10 @@ export class AuthService {
       return this.afAuth.signInWithEmailAndPassword(email, password)
           .then(() => {
               console.log('Auth Service: loginUser: success');
-              
+              this.router.navigate(['/articles']);
           })
-          .catch((error) => {
-            window.alert(error.message);
+          .catch(() => {
+            window.alert('Wrong email or password');
           });
         }
 
