@@ -13,7 +13,7 @@ import { DarkModeService } from 'src/app/share/services/dark-mode.service';
 export class LoginComponent implements OnInit{
 
   loginForm: FormGroup;
-  firebaseErrorMessage: string;
+  firebaseError!: boolean
   public currentDarkModeState!: boolean;
 
   constructor(private authService: AuthService, private DarkModeService: DarkModeService,) {
@@ -22,13 +22,18 @@ export class LoginComponent implements OnInit{
           'password': new FormControl('', Validators.required)
       });
 
-      this.firebaseErrorMessage = '';
+
   }
 
   ngOnInit(): void {
     this.DarkModeService.status.subscribe((data) => {
       this.currentDarkModeState = data;
     });
+
+    this.authService.errorStatus.subscribe((data) =>{
+      this.firebaseError = data
+    })
+
       
     this.getDarkModeStorage()
   }

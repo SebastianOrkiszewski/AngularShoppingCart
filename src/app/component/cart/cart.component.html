@@ -1,4 +1,4 @@
-<main class="cart__container" [ngStyle]="{ display: cartState ? 'inline' : 'none' }">
+<main class="cart__container" *ngIf="cartState">
   <div class="cart__background"></div>
     <ng-container *ngIf="products.length != 0">
         <div [ngClass]="currentDarkModeState ? 'filled-cart__dark' : 'filled-cart__light'" >

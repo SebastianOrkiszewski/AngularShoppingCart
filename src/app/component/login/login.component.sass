@@ -1,37 +1,96 @@
 $mainLightColor: #fffffffb
-$mainDarkColor: #0e0d0dfd
+$mainDarkColor: #292929
+$transparentColor: #18181833
+$errorColor: #e71a1ab9
+$buttonColor: linear-gradient(90deg, #6a5acd 0%, #956a7d 100%)
 
 .login__light
     background-color: $mainLightColor
     display: flex
-    justify-content: center
+    flex-direction: column
+    justify-content: flex-start
     align-items: center
+
     width: 100vw
     height: 92vh
 
 .login__dark
     background-color: $mainDarkColor
     display: flex
-    justify-content: center
+    flex-direction: column
+    justify-content: flex-start
     align-items: center
+
     width: 100vw
     height: 92vh
 
+.login__logo
+    width: 7em
+    margin-top: 8em
+
+.login__title
+    font-family: Rubik
+
+.login__error
+    background-color: $transparentColor
+    font-family: Rubik
+    border: 0.1em solid $errorColor
+    color: $errorColor
+    border-radius: 7px
+    padding-left: 10px
+    margin-bottom: 1em
+    min-width: 200px
+    width: 17vw
+
+.login__icon
+    font-size: 80px
+    height: 80px
+    width: 80px
+    margin-top: 4%
+
 .login__container
+    background-color: $transparentColor
     display: flex
     flex-direction: column
+    border: 0
+    border-radius: 7px
+    padding: 10px
+    width: 17vw
     input
+        background-color: $transparentColor
+        height: 4vh
+        min-width: 200px
+        width: 16vw
+        font-size: 100%
         margin-top: 5px
+        border: 0
+        border-radius: 3px
+        font-family: Rubik
     label
+        font-family: Rubik
         margin-top: 5px
     button
-        margin-top: 5px
+        margin-top: 20px
+        background: $buttonColor
+        color: $mainLightColor
+        border: 0
+        border-radius: 3px
+        height: 4vh
+        &:active
+            transform: scale(0.98)
 
 .login__information
+    background-color: $transparentColor
     display: flex
     flex-direction: column
-    border: 1px solid red
-    margin-top: 10px
-    padding: 5px
+    border: 0
+    border-radius: 7px
+    margin-top: 1em
+    margin-bottom: 1em
+    padding: 15px
+    min-width: 200px
+    width: 17vw
     p
+        font-family: Rubik
         margin: 0
+        padding: 0.2em
