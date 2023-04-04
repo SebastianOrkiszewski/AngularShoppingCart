@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/share/services/api.service';
 import { DarkModeService } from 'src/app/share/services/dark-mode.service';
 import { CartService } from 'src/app/share/services/cart.service';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Component({
   selector: 'app-articles',
@@ -18,7 +19,8 @@ export class ArticlesComponent implements OnInit {
   constructor(
     private api: ApiService,
     private DarkModeService: DarkModeService,
-    private CartService: CartService
+    private CartService: CartService,
+    public afAuth: AngularFireAuth
   ) {}
 
   ngOnInit(): void {
@@ -51,6 +53,8 @@ export class ArticlesComponent implements OnInit {
     console.log(this.articlesList);
   }
 
+  
+
   getDarkModeStorage() {
     let data: any = localStorage.getItem('currentDarkModeState');
     this.currentDarkModeState = JSON.parse(data);
@@ -65,5 +69,6 @@ export class ArticlesComponent implements OnInit {
     });
   }
 
-  
+
+
 }

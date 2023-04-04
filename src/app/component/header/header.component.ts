@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DarkModeService } from 'src/app/share/services/dark-mode.service';
 import { CartService } from 'src/app/share/services/cart.service';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -14,7 +15,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private DarkModeService: DarkModeService,
-    private CartService: CartService
+    private CartService: CartService,
+    public afAuth: AngularFireAuth
   ) {}
 
   ngOnInit(): void {
@@ -60,5 +62,10 @@ export class HeaderComponent implements OnInit {
     this.CartService.search.next(this.searchItem);
     this.searchItem = '';
     console.log(this.searchItem);
+  }
+
+  logout(): void {
+    this.afAuth.signOut();
+    this.CartService.removeAllCart()
   }
 }
