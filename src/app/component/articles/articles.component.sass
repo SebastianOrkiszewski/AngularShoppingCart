@@ -1,6 +1,5 @@
 @import src/assets/utilities/colors.sass
-
-$breakpoints: 512px
+@import src/assets/utilities/breakpoints.sass
 
 @mixin hidden-text
     max-width: 250px
@@ -21,7 +20,7 @@ $breakpoints: 512px
     width: 100%
     height: 92vh
     padding: 3% 10% 3% 10%
-    @media (max-width: $breakpoints)
+    @media (max-width: $screen-m)
         height: 84vh
 
 .main-dark
@@ -36,7 +35,7 @@ $breakpoints: 512px
     width: 100%
     height: 92vh
     padding: 3% 10% 3% 10%
-    @media (max-width: $breakpoints)
+    @media (max-width: $screen-m)
         height: 84vh
 
 .category
@@ -44,7 +43,7 @@ $breakpoints: 512px
     flex-direction: row
     position: absolute
     top: 1%
-    @media (max-width: $breakpoints)
+    @media (max-width: $screen-m)
         display: none
 
 .category__button

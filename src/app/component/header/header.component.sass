@@ -1,6 +1,5 @@
 @import src/assets/utilities/colors.sass
-
-$breakpoints: 767px
+@import src/assets/utilities/breakpoints.sass
 
 @mixin navIconSize
     font-size: 30px
@@ -35,7 +34,7 @@ $breakpoints: 767px
         justify-content: center
     &:active
         transform: scale(0.98)
-    @media (max-width: $breakpoints)
+    @media (max-width: $screen-m)
         width: 140px
 
 .shop-logo__icon
@@ -129,7 +128,7 @@ $breakpoints: 767px
     align-items: center
     height: 60px
     width: 600px
-    @media (max-width: $breakpoints)
+    @media (max-width: $screen-m)
         display: none
 
 .search__mobile
@@ -139,7 +138,7 @@ $breakpoints: 767px
     align-items: center
     height: 8vh
     width: 100%
-    @media (min-width: $breakpoints)
+    @media (min-width: $screen-m)
         display: none
 
 .search__input
@@ -156,7 +155,7 @@ $breakpoints: 767px
     border-radius: 5px 0 0 5px
     &::placeholder
         color: #ffffffb7
-    @media (max-width: $breakpoints)
+    @media (max-width: $screen-m)
         margin-left: 0
         height: 90%
         width: 50%
@@ -171,7 +170,7 @@ $breakpoints: 767px
     padding: 0 15px 0 15px
     border: none
     border-radius: 0 5px 5px 0
-    @media (max-width: $breakpoints)
+    @media (max-width: $screen-m)
         margin-left: 0
 
 .search__button--icon
