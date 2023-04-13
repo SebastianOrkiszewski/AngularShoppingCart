@@ -1,19 +1,19 @@
 <main [ngClass]="currentDarkModeState ? 'login__dark' : 'login__light'" >
     
     <img class="login__logo" [src]="'assets/image/user.png'" alt="user logo">
-    <h1 class="login_title">Sign in to Shop</h1>
+    <h1 class="login__title" [style.color]="currentDarkModeState ? '#F8F8FB' : '#000000'">Sign in to Shop</h1>
     <div *ngIf="firebaseError == true" class="login__error">
         <p>Incorrect email or password.</p>
     </div>
-    <form class="login__container" [formGroup]="loginForm" (ngSubmit)="loginUser()" type="">
-        <label [style.color]="currentDarkModeState ? 'white' : 'black'" for="">Email</label>
+    <form class="login__container" [formGroup]="loginForm" (ngSubmit)="loginUser()" type="" [ngClass]="currentDarkModeState ? 'login__container--dark' : 'login__container--light'">
+        <label for="">Email</label>
         <input type="email" formControlName="email" >
-        <label [style.color]="currentDarkModeState ? 'white' : 'black'" for="">Password</label>
+        <label for="">Password</label>
         <input type="password" formControlName="password">
         <button type="submit">Sign In</button>
     </form>
-        <div class="login__information">
-            <p [style.color]="currentDarkModeState ? 'white' : 'black'" >Email: test@test.com</p>
-            <p [style.color]="currentDarkModeState ? 'white' : 'black'" >Password: Test123</p>
+        <div [ngClass]="currentDarkModeState ? 'login__information--dark' : 'login__information--light'">
+            <p >Email: test@test.com</p>
+            <p >Password: Test123</p>
         </div>
 </main>

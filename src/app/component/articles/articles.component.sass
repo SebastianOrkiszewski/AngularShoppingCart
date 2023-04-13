@@ -1,9 +1,6 @@
-$mainLightColor: #f0f0f0c7
-$mainDarkColor: #292929
-$headerColor: linear-gradient(90deg, #6a5acd 0%, #956a7d 100%)
-$productsDarkColor: #1d1d1d94
-$productsLightColor: #FFFFFF
-$breakpoints: 767px
+@import src/assets/utilities/colors.sass
+
+$breakpoints: 512px
 
 @mixin hidden-text
     max-width: 250px
@@ -14,7 +11,7 @@ $breakpoints: 767px
 
 .main-light
     z-index: 1
-    background-color: $mainLightColor
+    background-color: $lightColor
     position: relative
     display: grid
     grid-gap: 25px
@@ -29,7 +26,7 @@ $breakpoints: 767px
 
 .main-dark
     z-index: 1
-    background-color: $mainDarkColor
+    background-color: $darkColor
     position: relative
     display: grid
     grid-gap: 25px
@@ -51,7 +48,7 @@ $breakpoints: 767px
         display: none
 
 .category__button
-    background-color: #ffffff00
+    background-color: $transparent
     font-family: Rubik
     font-size: 18px
     margin: 0 12px 0 12px
@@ -60,7 +57,7 @@ $breakpoints: 767px
         transform: scale(0.95)
 
 .products-light
-    background-color: $productsLightColor
+    background-color: $itemsLightColor
     display: flex
     flex-direction: column
     border: 0
@@ -71,7 +68,7 @@ $breakpoints: 767px
             transform: scale(0.95)
 
 .products-dark
-    background-color: $productsDarkColor
+    background-color: $itemsDarkColor
     display: flex
     flex-direction: column
     border: 0
@@ -102,8 +99,8 @@ $breakpoints: 767px
     font-weight: 500
 
 .products__btn
-    background: $headerColor
-    color: $productsLightColor
+    background: $accessoriesColor
+    color: $itemsLightColor
     width: 20%
     border: 0
 

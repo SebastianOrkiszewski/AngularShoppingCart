@@ -1,11 +1,7 @@
-$mainLightColor: #fffffffb
-$mainDarkColor: #292929
-$transparentColor: #18181833
-$errorColor: #e71a1ab9
-$buttonColor: linear-gradient(90deg, #6a5acd 0%, #956a7d 100%)
+@import src/assets/utilities/colors.sass
 
 .login__light
-    background-color: $mainLightColor
+    background-color: $lightColor
     display: flex
     flex-direction: column
     justify-content: flex-start
@@ -15,7 +11,7 @@ $buttonColor: linear-gradient(90deg, #6a5acd 0%, #956a7d 100%)
     height: 92vh
 
 .login__dark
-    background-color: $mainDarkColor
+    background-color: $darkColor
     display: flex
     flex-direction: column
     justify-content: flex-start
@@ -32,7 +28,7 @@ $buttonColor: linear-gradient(90deg, #6a5acd 0%, #956a7d 100%)
     font-family: Rubik
 
 .login__error
-    background-color: $transparentColor
+    background-color: $transparent
     font-family: Rubik
     border: 0.1em solid $errorColor
     color: $errorColor
@@ -48,8 +44,8 @@ $buttonColor: linear-gradient(90deg, #6a5acd 0%, #956a7d 100%)
     width: 80px
     margin-top: 4%
 
-.login__container
-    background-color: $transparentColor
+.login__container--light
+    background-color: $itemsLightColor
     display: flex
     flex-direction: column
     border: 0
@@ -57,30 +53,67 @@ $buttonColor: linear-gradient(90deg, #6a5acd 0%, #956a7d 100%)
     padding: 10px
     width: 17vw
     input
-        background-color: $transparentColor
+        background-color: $lightColor
+        color: $darkTextColor
         height: 4vh
         min-width: 200px
         width: 16vw
         font-size: 100%
         margin-top: 5px
         border: 0
+        outline: 0
         border-radius: 3px
         font-family: Rubik
     label
+        color: $darkTextColor
         font-family: Rubik
         margin-top: 5px
     button
         margin-top: 20px
-        background: $buttonColor
-        color: $mainLightColor
+        background: $accessoriesColor
+        color: $lightTextColor
         border: 0
         border-radius: 3px
         height: 4vh
         &:active
             transform: scale(0.98)
 
-.login__information
-    background-color: $transparentColor
+.login__container--dark
+    background-color: $itemsDarkColor
+    display: flex
+    flex-direction: column
+    border: 0
+    border-radius: 7px
+    padding: 10px
+    width: 17vw
+    input
+        background-color: $inputColor
+        color: $lightTextColor
+        height: 4vh
+        min-width: 200px
+        width: 16vw
+        font-size: 100%
+        margin-top: 5px
+        border: 0
+        outline: 0
+        border-radius: 3px
+        font-family: Rubik
+    label
+        color: $lightTextColor
+        font-family: Rubik
+        margin-top: 5px
+    button
+        margin-top: 20px
+        background: $accessoriesColor
+        color: $lightTextColor
+        border: 0
+        border-radius: 3px
+        height: 4vh
+        &:active
+            transform: scale(0.98)
+
+.login__information--light
+    background-color: $itemsLightColor
     display: flex
     flex-direction: column
     border: 0
@@ -91,6 +124,24 @@ $buttonColor: linear-gradient(90deg, #6a5acd 0%, #956a7d 100%)
     min-width: 200px
     width: 17vw
     p
+        color: $darkTextColor
+        font-family: Rubik
+        margin: 0
+        padding: 0.2em
+
+.login__information--dark
+    background-color: $itemsDarkColor
+    display: flex
+    flex-direction: column
+    border: 0
+    border-radius: 7px
+    margin-top: 1em
+    margin-bottom: 1em
+    padding: 15px
+    min-width: 200px
+    width: 17vw
+    p
+        color: $lightTextColor
         font-family: Rubik
         margin: 0
         padding: 0.2em

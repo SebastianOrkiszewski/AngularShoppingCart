@@ -1,8 +1,5 @@
-$mainLightColor: #fffffffb
-$mainDarkColor: #0e0d0dfd
-$ButtonColor: linear-gradient(90deg, #6a5acd 0%, #956a7d 100%)
-$productsDarkColor: #1d1d1d94
-$productsLightColor: #f0f0f0c7
+@import src/assets/utilities/colors.sass
+
 $breakpoints: 767px
 $smallBreakpoints: 512px
 
@@ -16,7 +13,7 @@ $smallBreakpoints: 512px
     z-index: 3
 
 .cart__background
-    background-color: #0a0a0a4d
+    background-color: $blurColor
     backdrop-filter: blur(3.5px)
     z-index: 2
     position: fixed
@@ -26,7 +23,7 @@ $smallBreakpoints: 512px
         display: none
 
 .filled-cart__light
-    background-color: $mainLightColor
+    background-color: $lightColor
     position: fixed
     display: flex
     flex-direction: column
@@ -43,7 +40,7 @@ $smallBreakpoints: 512px
         height: 84vh
 
 .filled-cart__dark
-    background-color: $mainDarkColor
+    background-color: $darkColor
     position: fixed
     display: flex
     flex-direction: column
@@ -73,7 +70,7 @@ $smallBreakpoints: 512px
     overflow: auto
 
 .articles-container__light
-    background-color: $productsLightColor
+    background-color: $itemsLightColor
     display: flex
     flex-direction: column
     justify-content: center
@@ -88,7 +85,7 @@ $smallBreakpoints: 512px
         height: 26vh
 
 .articles-container__dark
-    background-color: $productsDarkColor
+    background-color: $itemsDarkColor
     display: flex
     flex-direction: column
     justify-content: space-around
@@ -171,8 +168,8 @@ $smallBreakpoints: 512px
     flex-direction: row
     justify-content: space-between
     button
-        background: $ButtonColor
-        color: $mainLightColor
+        background: $accessoriesColor
+        color: $lightTextColor
         width: 70%
         padding: 3% 3% 3% 3%
         border: 0
@@ -182,36 +179,26 @@ $smallBreakpoints: 512px
             transform: scale(0.98)
 
 .empty-cart__light
-    background-color: $mainLightColor
-    position: fixed
+    background-color: $lightColor
     display: flex
     flex-direction: column
     justify-content: center
     align-items: center
+    margin-top: 9rem
     z-index: 2
-    width: 500px
-    height: 92vh
-    right: 0%
-    @media (max-width: $breakpoints)
-        width: 100vw
 
 .empty-cart__dark
-    background-color: $mainDarkColor
-    position: fixed
+    background-color: $darkColor
     display: flex
     flex-direction: column
     justify-content: center
     align-items: center
+    margin-top: 9rem
     z-index: 2
-    width: 500px
-    height: 92vh
-    right: 0%
-    @media (max-width: $breakpoints)
-        width: 100vw
 
 .empty-cart__logo
     min-width: 200px
-    width: 17vw
+    width: 10vw
 
 .empty-cart__title
     margin-bottom: 0
@@ -223,8 +210,8 @@ $smallBreakpoints: 512px
 
 .empty-cart__btn
     @include size-text
-    background: $ButtonColor
-    color: $mainLightColor
+    background: $accessoriesColor
+    color: $lightTextColor
     min-width: 120px
     width: 8vw
     padding: 15px 0 15px 0
