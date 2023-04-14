@@ -5,20 +5,22 @@
             <mat-icon (click)="switchCartState()" class="exit__cart" >clear</mat-icon>
             <div class="articles-container">
                 <div *ngFor="let item of products; let i = index" [ngClass]="currentDarkModeState ? 'articles-container__dark' : 'articles-container__light'">
-                    <h3 class="articles-container__title" [style.color]="currentDarkModeState ? '#F8F8FB' : '#000000'" >{{item.title}}</h3>
-                    <div class="articles-container__rows">
-                        <img class="articles-container__image" src="{{item.image}}" alt="a">
-                        <div class="articles-container__quantity">
-                            <mat-icon (click)="removeItemInCart(item)" class="articles-container__quantity--icons">remove_circle</mat-icon>
-                            <p [style.color]="currentDarkModeState ? '#F8F8FB' : '#000000'" >{{item.quantity}}</p>
-                            <mat-icon (click)="addItemInCart(item)" class="articles-container__quantity--icons" >add_circle</mat-icon>
+                        <div class="articles-container__first">
+                            <img class="articles-container__image" src="{{item.image}}" alt="a">
+                            <h3 class="articles-container__title" [style.color]="currentDarkModeState ? '#F8F8FB' : '#000000'" >{{item.title}}</h3>
+                            <mat-icon (click)="removeCartItem(item)" class="articles-container__quantity--icons" >delete_forever</mat-icon>
                         </div>
-                        <div class="articles-container__prices">
-                            <h4 [style.color]="currentDarkModeState ? '#F8F8FB' : '#000000'" >{{item.sum | number: '1.2-2'}}$</h4>
-                            <p [style.color]="currentDarkModeState ? '#F8F8FB' : '#000000'" >{{item.price | number: '1.2-2'}}$</p>
+                        <div class="articles-container__second">
+                            <div class="articles-container__quantity">
+                                <mat-icon (click)="removeItemInCart(item)" class="articles-container__quantity--icons">indeterminate_check_box</mat-icon>
+                                <p [style.color]="currentDarkModeState ? '#F8F8FB' : '#000000'" >{{item.quantity}}</p>
+                                <mat-icon (click)="addItemInCart(item)" class="articles-container__quantity--icons" >add_box</mat-icon>
+                            </div>
+                            <div class="articles-container__prices">
+                                <h4 [style.color]="currentDarkModeState ? '#F8F8FB' : '#000000'" >{{item.sum | number: '1.2-2'}}$</h4>
+                                <p [style.color]="currentDarkModeState ? '#F8F8FB' : '#000000'" >{{item.price | number: '1.2-2'}}$</p>
+                            </div>
                         </div>
-                        <mat-icon (click)="removeCartItem(item)" class="articles-container__quantity--icons" >delete_forever</mat-icon>
-                    </div>
                 </div>
                 <ng-container *ngIf="products.length == 0" >
                     <div [ngClass]="currentDarkModeState ? 'empty-cart__dark' : 'empty-cart__light'" >

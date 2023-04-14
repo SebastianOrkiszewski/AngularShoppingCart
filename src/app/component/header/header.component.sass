@@ -11,47 +11,53 @@
     padding-right: 1%
     width: 100vw
     height: 8vh
+    min-height: 70px
 
 .shop-logo
-    background-color: $accessoriesColor
-    border-radius: 0 18px 18px 0
-    width: 180px
-    height: 8vh
-    padding-left: 1%
     display: flex
     flex-direction: row
     align-items: center
     justify-content: flex-start
+    background-color: $accessoriesColor
+    width: 180px
+    height: 8vh
+    min-height: 70px
+    border-radius: 0 18px 18px 0
+    padding-left: 1%
     cursor: pointer
     h1
+        @include flexCenter
         width: 50px
-        display: flex
-        align-items: center
-        justify-content: center
     &:active
         transform: scale(0.98)
-    @media (max-width: $screen-m)
-        width: 140px
+    @media only screen and (max-width: $screen-s)
+        width: 85px
 
 .shop-logo__icon
     color: $itemsLightColor
     transform: scale(2.2)
+    @media only screen and (max-width: $screen-s)
+        display: none
 
 .shop-logo__name
-    margin-left: 18px
+    font-size: 2em
+    font-weight: bold
+    margin: 0 18px 0 18px
     color: $itemsLightColor
+    @media only screen and (max-width: $screen-s)
+        margin: 0 0 0 -50px
 
 .buttons
     display: flex
     flex-direction: row
     align-items: center
-    height: 8vh
     justify-content: flex-end
+    height: 8vh
 
 .buttons__switcher
     background: 0
-    border: 0
     width: 50px
+    border: 0
     margin-right: 5px
     cursor: pointer
 
@@ -77,9 +83,9 @@
     display: flex
     flex-direction: row
     align-items: flex-end
+    background-color: $transparent
     border: none
     cursor: pointer
-    background-color: $transparent
 
 .buttons__cart--icon
     color: $iconColor
@@ -94,10 +100,11 @@
 .buttons__cart--counter
     background: $cartCounterColor
     color: $itemsLightColor
+    width: 25px
     border-radius: 100px
     font-size: 13px
     margin: 0 10% -10% -10%
-    padding: 2px 6px 2px 6px
+    padding: 2px
     opacity: 0.9
 
 .buttons__login
@@ -119,22 +126,18 @@
     @include navIconSize
 
 .search
-    display: flex
-    justify-content: center
-    align-items: center
+    @include flexCenter
     height: 60px
     width: 600px
-    @media (max-width: $screen-m)
+    @media only screen and (max-width: $screen-m)
         display: none
 
 .search__mobile
+    @include flexCenter
     background: $headerColor
-    display: flex
-    justify-content: center
-    align-items: center
     height: 8vh
-    width: 100%
-    @media (min-width: $screen-m)
+    width: 100vw
+    @media only screen and (min-width: 767px)
         display: none
 
 .search__input
@@ -143,7 +146,7 @@
     color: $lightTextColor
     height: 90%
     width: 100%
-    margin-left: 5%
+    margin-left: 1%
     padding-left: 10px
     font-size: 100%
     border: 0
@@ -151,10 +154,10 @@
     border-radius: 5px 0 0 5px
     &::placeholder
         color: #ffffffb7
-    @media (max-width: $screen-m)
+    @media only screen and (max-width: $screen-m)
         margin-left: 0
         height: 90%
-        width: 50%
+        width: 70%
 
 .search__button
     display: flex
@@ -162,11 +165,11 @@
     background-color: $hoverColor
     color: $accessoriesColor
     height: 90%
-    margin-right: 5%
+    margin: 0
     padding: 0 15px 0 15px
     border: none
     border-radius: 0 5px 5px 0
-    @media (max-width: $screen-m)
+    @media only screen and (max-width: $screen-m)
         margin-left: 0
 
 .search__button--icon

@@ -1,8 +1,8 @@
 <header>
     <div class="header">
-        <div routerLink="/**" class="shop-logo">
+        <div routerLink="/articles" class="shop-logo">
             <h1><mat-icon class="shop-logo__icon">shop</mat-icon></h1>
-            <h1 class="shop-logo__name">Shop</h1>
+            <p class="shop-logo__name">Shop</p>
         </div>
         <div class="search" >
             <input class="search__input" type="text" [(ngModel)]="searchItem" (keyup.enter)="search(searchItem)" placeholder="search">

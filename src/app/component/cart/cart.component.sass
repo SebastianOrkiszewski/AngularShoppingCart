@@ -70,14 +70,14 @@
     flex-direction: column
     justify-content: center
     align-items: flex-start
-    height: 22vh
-    margin: 4% 1% 0 0
+    width: 480px
+    height: 210px
+    margin: 4% 0 0 0
     padding: 10px
     border: 0
     border-radius: 7px
     @media (max-width: $screen-m)
         width: 90vw
-        height: 26vh
 
 .articles-container__dark
     background-color: $itemsDarkColor
@@ -85,24 +85,33 @@
     flex-direction: column
     justify-content: space-around
     align-items: flex-start
-    height: 22vh
-    margin: 4% 1% 0 0
+    width: 480px
+    height: 210px
+    margin: 4% 0 0 0
     padding: 10px
     border: 0
     border-radius: 7px
     @media (max-width: $screen-m)
         width: 90vw
-        height: 26vh
 
-.articles-container__rows
+.articles-container__first
     display: flex
-    flex-direction: row
-    justify-content: center
     align-items: center
+    justify-content: space-between
+    width: 100%
+
+.articles-container__second
+    display: flex
+    align-items: center
+    justify-content: space-between
+    height: 50px
+    width: 100%
 
 .articles-container__title
-    width: 280px
-    margin: 0 0 10px 0
+    display: flex
+    align-items: flex-start
+    width: 250px
+    margin: 0 10px
     display: block
     overflow: hidden
     text-overflow: ellipsis
@@ -110,40 +119,41 @@
 
 .articles-container__image
     width: 150px
+    min-width: 150px
     height: 150px
     border-radius: 5px
-    margin-right: 45px
+    margin: 0
 
 .articles-container__quantity
     display: flex
     flex-direction: row
     align-items: center
-    margin-right: 45px
+    justify-content: center
+    width: 150px
+    margin: 0
     p
         margin: 0 6px 0 6px
         font-size: 20px
-    @media (max-width: screen-s)
-        display: none
 
 .articles-container__quantity--icons
     transform: scale(1.2)
     color: grey
+    min-width: 19px
     &:active
         transform: scale(1.12)
 
 .articles-container__prices
     display: flex
     flex-direction: column
-    align-items: center
+    align-items: flex-end
     justify-content: center
-    width: 60px
-    margin-right: 45px
+    width: 100px
+    margin: 0
     p
         margin-top: 5px
     h4
         margin: 0
-    @media (max-width: screen-s)
-        display: none
+    @media (max-width: $screen-s)
 
 .pay-container
     width: 100%
@@ -154,6 +164,7 @@
 .pay-container__value
     display: flex
     justify-content: space-between
+    align-items: center
     padding-bottom: 10px
     h1
         margin: 0
@@ -179,7 +190,7 @@
     flex-direction: column
     justify-content: center
     align-items: center
-    margin-top: 9rem
+    margin-top: 35%
     z-index: 2
 
 .empty-cart__dark
@@ -188,7 +199,7 @@
     flex-direction: column
     justify-content: center
     align-items: center
-    margin-top: 9rem
+    margin-top: 35%
     z-index: 2
 
 .empty-cart__logo
@@ -201,10 +212,10 @@
 
 .empty-cart__news
     margin: 2%
-    @include size-text
+    @include sizeText
 
 .empty-cart__btn
-    @include size-text
+    @include sizeText
     background: $accessoriesColor
     color: $lightTextColor
     min-width: 120px
