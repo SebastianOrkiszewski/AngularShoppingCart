@@ -39,8 +39,9 @@ export class LoginComponent implements OnInit{
   }
 
   getDarkModeStorage(){
-    let data:any = localStorage.getItem('currentDarkModeState')
+    let data: any = localStorage.getItem('currentDarkModeState')
     this.currentDarkModeState = JSON.parse(data)
+    
   }
 
   loginUser() {

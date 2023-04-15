@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DarkModeService } from 'src/app/share/services/dark-mode.service';
 import { CartService } from 'src/app/share/services/cart.service';
+import { Product } from 'src/app/models/product.model';
 
 @Component({
   selector: 'app-cart',
@@ -8,7 +9,7 @@ import { CartService } from 'src/app/share/services/cart.service';
   styleUrls: ['./cart.component.sass'],
 })
 export class CartComponent implements OnInit {
-  public products: any = [];
+  public products: Array<Product> = [];
   public grandTotal!: number;
   public currentDarkModeState!: boolean;
   public cartState: boolean = false
@@ -32,17 +33,17 @@ export class CartComponent implements OnInit {
     });
     this.getDarkModeStorage()
   }
-  addItemInCart(item: any) {
+  addItemInCart(item: Product) {
     this.CartService.addItemInCart(item);
   }
 
-  removeItemInCart(item: any) {
+  removeItemInCart(item: Product) {
     if (item.quantity > 1) {
       this.CartService.removeItemInCart(item);
     }
   }
 
-  removeCartItem(item: any) {
+  removeCartItem(item: Product) {
     this.CartService.removeCartItem(item);
   }
 
@@ -51,7 +52,7 @@ export class CartComponent implements OnInit {
   }
 
   getDarkModeStorage(){
-    let data:any = localStorage.getItem('currentDarkModeState')
+    let data: any = localStorage.getItem('currentDarkModeState')
     this.currentDarkModeState = JSON.parse(data)
   }
 

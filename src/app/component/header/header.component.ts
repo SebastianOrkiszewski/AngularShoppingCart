@@ -57,7 +57,7 @@ export class HeaderComponent implements OnInit {
     this.currentDarkModeState = JSON.parse(data);
   }
 
-  search(event: any) {
+  search(event: string) {
     this.searchItem = event;
     this.CartService.search.next(this.searchItem);
     this.searchItem = '';

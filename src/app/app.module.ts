@@ -15,10 +15,6 @@ import { LoginComponent } from './component/login/login.component';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,

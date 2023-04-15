@@ -3,6 +3,7 @@ import { ApiService } from 'src/app/share/services/api.service';
 import { DarkModeService } from 'src/app/share/services/dark-mode.service';
 import { CartService } from 'src/app/share/services/cart.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Product } from 'src/app/models/product.model';
 
 @Component({
   selector: 'app-articles',
@@ -10,14 +11,14 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
   styleUrls: ['./articles.component.sass'],
 })
 export class ArticlesComponent implements OnInit {
-  public articlesList: any;
+  public articlesList: Array<Product> = []
   public filterBy: string = '';
-  public filterArticles: any;
+  public filterArticles: Array<Product> = []
   public currentDarkModeState: boolean = false;
   
 
   constructor(
-    private api: ApiService,
+    private ApiService: ApiService,
     private DarkModeService: DarkModeService,
     private CartService: CartService,
     public afAuth: AngularFireAuth
@@ -28,15 +29,15 @@ export class ArticlesComponent implements OnInit {
       this.currentDarkModeState = data;
     });
     
-    this.api.getDetails().subscribe((res) => {
+    this.ApiService.getDetails().subscribe((res) => {
       this.articlesList = res;
       this.filterArticles = res;
-      this.articlesList.forEach((a: any) => {
+      this.articlesList.forEach((product: Product) => {
         if (
-          a.category === "women's clothing" || a.category === "men's clothing") {
-          a.category = 'clothes';
+          product.category === "women's clothing" || product.category === "men's clothing") {
+          product.category = 'clothes';
         }
-        Object.assign(a, { quantity: 0, total: a.price, sum: a.price });
+        Object.assign(product, { quantity: 0, total: product.price, sum: product.price });
       });
     });
 
@@ -48,9 +49,9 @@ export class ArticlesComponent implements OnInit {
     this.CartService.search.next('');
   }
 
-  addArticleToCart(item: any) {
+  addArticleToCart(item: Product) {
     this.CartService.addArticleToCart(item);
-    console.log(this.articlesList);
+    console.log(item);
   }
 
   
@@ -62,9 +63,9 @@ export class ArticlesComponent implements OnInit {
 
   filterCategory(category: string) {
     this.CartService.search.next('');
-    this.filterArticles = this.articlesList.filter((a: any) => {
-      if (a.category == category || category == '') {
-        return a;
+    this.filterArticles = this.articlesList.filter((product: any) => {
+      if (product.category == category || category == '') {
+        return product;
       }
     });
   }

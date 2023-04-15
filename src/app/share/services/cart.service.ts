@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
-import { ApiService } from './api.service';
 import { Router } from '@angular/router';
+import { Product } from 'src/app/models/product.model';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  public cartItems: any = [];
-  public articleList = new BehaviorSubject<any>([]);
+  public cartItems: Array<Product> = []
+  public articleList = new BehaviorSubject<Array<Product>>([]);
   public search = new BehaviorSubject<string>('');
   public showCart = new Subject<boolean>();
   showCartState = this.showCart.asObservable();
@@ -19,12 +20,12 @@ export class CartService {
     return this.articleList.asObservable();
   }
 
-  setArticles(item: any) {
+  setArticles(item: Array<Product>) {
     this.cartItems.push(...item);
     this.articleList.next(item);
   }
 
-  addArticleToCart(item: any) {
+  addArticleToCart(item: Product) {
     item.sum = item.price + item.sum;
     if (item.quantity === 0) {
       this.cartItems.push(item);
@@ -39,30 +40,30 @@ export class CartService {
 
   getQuantity(): number {
     let quantity = 0;
-    this.cartItems.map((item: any) => {
+    this.cartItems.map((item: Product) => {
       quantity += item.quantity;
     });
 
     return quantity;
   }
 
-  addItemInCart(item: any) {
+  addItemInCart(item: Product) {
     item.quantity++;
     item.sum = item.price + item.sum;
     this.getGrandTotal();
     this.articleList.next(this.cartItems);
   }
 
-  removeItemInCart(item: any) {
+  removeItemInCart(item: Product) {
     item.quantity--;
     item.sum = item.sum - item.price;
     this.getGrandTotal();
     this.articleList.next(this.cartItems);
   }
 
-  removeCartItem(item: any) {
-    this.cartItems.map((e: any, index: any) => {
-      if (item.id === e.id) {
+  removeCartItem(item: Product) {
+    this.cartItems.map((product: Product, index: number) => {
+      if (item.id === product.id) {
         this.cartItems.splice(index, 1);
       }
     });
@@ -78,8 +79,8 @@ export class CartService {
 
   getGrandTotal(): number {
     let grandTotal = 0;
-    this.cartItems.map((a: any) => {
-      grandTotal += a.sum;
+    this.cartItems.map((product: Product) => {
+      grandTotal += product.sum;
     });
     return grandTotal;
   }
