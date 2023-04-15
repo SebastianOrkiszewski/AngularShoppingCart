@@ -7,34 +7,34 @@
                 <div *ngFor="let item of products; let i = index" [ngClass]="currentDarkModeState ? 'articles-container__dark' : 'articles-container__light'">
                         <div class="articles-container__first">
                             <img class="articles-container__image" src="{{item.image}}" alt="a">
-                            <h3 class="articles-container__title" [style.color]="currentDarkModeState ? '#F8F8FB' : '#000000'" >{{item.title}}</h3>
+                            <h3 class="articles-container__title" [ngClass]="currentDarkModeState ? 'null' : 'dark-text-color'" >{{item.title}}</h3>
                             <mat-icon (click)="removeCartItem(item)" class="articles-container__quantity--icons" >delete_forever</mat-icon>
                         </div>
                         <div class="articles-container__second">
                             <div class="articles-container__quantity">
                                 <mat-icon (click)="removeItemInCart(item)" class="articles-container__quantity--icons">indeterminate_check_box</mat-icon>
-                                <p [style.color]="currentDarkModeState ? '#F8F8FB' : '#000000'" >{{item.quantity}}</p>
+                                <p class="articles-container__text" [ngClass]="currentDarkModeState ? 'null' : 'dark-text-color'" >{{item.quantity}}</p>
                                 <mat-icon (click)="addItemInCart(item)" class="articles-container__quantity--icons" >add_box</mat-icon>
                             </div>
                             <div class="articles-container__prices">
-                                <h4 [style.color]="currentDarkModeState ? '#F8F8FB' : '#000000'" >{{item.sum | number: '1.2-2'}}$</h4>
-                                <p [style.color]="currentDarkModeState ? '#F8F8FB' : '#000000'" >{{item.price | number: '1.2-2'}}$</p>
+                                <h4 class="articles-container__sum" [ngClass]="currentDarkModeState ? 'null' : 'dark-text-color'" >{{item.sum | number: '1.2-2'}}$</h4>
+                                <p class="articles-container__price" [ngClass]="currentDarkModeState ? 'null' : 'dark-text-color'" >{{item.price | number: '1.2-2'}}$</p>
                             </div>
                         </div>
                 </div>
                 <ng-container *ngIf="products.length == 0" >
                     <div [ngClass]="currentDarkModeState ? 'empty-cart__dark' : 'empty-cart__light'" >
                         <img class="empty-cart__logo" [src]="'assets/image/basket.png'" alt="empty cart logo">
-                        <h3 [style.color]="currentDarkModeState ? '#F8F8FB' : '#000000'" class="empty-cart__title">Your shopping cart is empty</h3>
-                        <p [style.color]="currentDarkModeState ? '#F8F8FB' : '#000000'" class="empty-cart__news">Add items to the cart and buy them quickly and conveniently.</p>
+                        <h3 [ngClass]="currentDarkModeState ? 'null' : 'dark-text-color'" class="empty-cart__title">Your shopping cart is empty</h3>
+                        <p [ngClass]="currentDarkModeState ? 'null' : 'dark-text-color'" class="empty-cart__news">Add items to the cart and buy them quickly and conveniently.</p>
                         <button (click)="switchCartState()" class="empty-cart__btn" >Return</button>
                         </div>
                 </ng-container>
             </div>
             <div class="pay-container">
                 <div class="pay-container__value">
-                    <h1 [style.color]="currentDarkModeState ? '#F8F8FB' : '#000000'" >Grand Total</h1>
-                    <h1 [style.color]="currentDarkModeState ? '#F8F8FB' : '#000000'" >{{grandTotal | number: '1.2-2'}}$</h1>
+                    <h1 class="pay-container__text" [ngClass]="currentDarkModeState ? 'null' : 'dark-text-color'" >Grand Total</h1>
+                    <h1 class="pay-container__text" [ngClass]="currentDarkModeState ? 'null' : 'dark-text-color'" >{{grandTotal | number: '1.2-2'}}$</h1>
                 </div>
                 <div class="pay-container__buttons">
                         <button >Buy Now</button>

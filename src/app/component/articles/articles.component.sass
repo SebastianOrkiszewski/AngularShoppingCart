@@ -44,6 +44,7 @@
 
 .category__button
     background-color: $transparent
+    color: $lightTextColor
     font-family: Rubik
     font-size: 18px
     margin: 0 12px 0 12px
@@ -88,12 +89,14 @@
     @include hiddenText
     font-weight: bold
     letter-spacing: 1px
+    color: $lightTextColor
 
 .products__description
     @include hiddenText
 
 .products__price
     font-weight: 500
+    color: $lightTextColor
 
 .products__btn
     background: $accessoriesColor
@@ -102,3 +105,6 @@
     border: 0
     &:active
         transform: scale(0.98)
+
+.dark-text-color
+    color: $darkTextColor

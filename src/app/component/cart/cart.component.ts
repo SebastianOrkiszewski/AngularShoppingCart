@@ -11,7 +11,7 @@ import { Product } from 'src/app/models/product.model';
 export class CartComponent implements OnInit {
   public products: Array<Product> = [];
   public grandTotal!: number;
-  public currentDarkModeState!: boolean;
+  public currentDarkModeState: boolean = false
   public cartState: boolean = false
 
   constructor(

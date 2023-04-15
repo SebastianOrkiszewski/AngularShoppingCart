@@ -10,4 +10,3 @@ export interface Product {
     sum: number;
     total: number;
   }
-  

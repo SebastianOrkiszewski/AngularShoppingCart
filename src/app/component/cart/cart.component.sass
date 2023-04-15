@@ -116,6 +116,7 @@
     overflow: hidden
     text-overflow: ellipsis
     white-space: nowrap
+    color: $lightTextColor
 
 .articles-container__image
     width: 150px
@@ -131,9 +132,11 @@
     justify-content: center
     width: 150px
     margin: 0
-    p
-        margin: 0 6px 0 6px
-        font-size: 20px
+
+.articles-container__text
+    margin: 0 6px 0 6px
+    font-size: 20px
+    color: $lightTextColor
 
 .articles-container__quantity--icons
     transform: scale(1.2)
@@ -149,11 +152,14 @@
     justify-content: center
     width: 100px
     margin: 0
-    p
-        margin-top: 5px
-    h4
-        margin: 0
-    @media (max-width: $screen-s)
+
+.articles-container__sum
+    margin: 0
+    color: $lightTextColor
+
+.articles-container__price
+    margin-top: 5px
+    color: $lightTextColor
 
 .pay-container
     width: 100%
@@ -166,8 +172,10 @@
     justify-content: space-between
     align-items: center
     padding-bottom: 10px
-    h1
-        margin: 0
+
+.pay-container__text
+    margin: 0
+    color: $lightTextColor
 
 .pay-container__buttons
     display: flex
@@ -209,9 +217,11 @@
 .empty-cart__title
     margin-bottom: 0
     padding: 0 20px 0 20px
+    color: $lightTextColor
 
 .empty-cart__news
     margin: 2%
+    color: $lightTextColor
     @include sizeText
 
 .empty-cart__btn
@@ -225,3 +235,6 @@
     border-radius: 4px
     &:active
         transform: scale(0.98)
+
+.dark-text-color
+    color: $darkTextColor

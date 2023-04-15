@@ -1,17 +1,17 @@
 <main [ngClass]="currentDarkModeState ? 'main-dark' : 'main-light'" > 
     <div class="category">
-    <button class="category__button" (click)="filterCategory('')" [style.color]="currentDarkModeState ? '#F8F8FB' : '#000000'" >All product</button>
-    <button class="category__button" (click)="filterCategory('electronics')" [style.color]="currentDarkModeState ? '#F8F8FB' : '#000000'" >Electronic</button>
-    <button class="category__button" (click)="filterCategory('clothes')" [style.color]="currentDarkModeState ? '#F8F8FB' : '#000000'" >Clothes</button>
-    <button class="category__button" (click)="filterCategory('jewelery')" [style.color]="currentDarkModeState ? '#F8F8FB' : '#000000'">Jewelery</button>
+    <button class="category__button" (click)="filterCategory('')" [ngClass]="currentDarkModeState ? 'null' : 'dark-text-color'" >All product</button>
+    <button class="category__button" (click)="filterCategory('electronics')" [ngClass]="currentDarkModeState ? 'null' : 'dark-text-color'" >Electronic</button>
+    <button class="category__button" (click)="filterCategory('clothes')" [ngClass]="currentDarkModeState ? 'null' : 'dark-text-color'" >Clothes</button>
+    <button class="category__button" (click)="filterCategory('jewelery')" [ngClass]="currentDarkModeState ? 'null' : 'dark-text-color'">Jewelery</button>
     </div>  
     
     <ng-container class="x" *ngFor="let items of filterArticles | filter:filterBy:'title'">
         <div [ngClass]="currentDarkModeState ? 'products-dark' : 'products-light'">
             <img class="products__img" src="{{items.image}}" alt="">
-            <p [style.color]="currentDarkModeState ? '#F8F8FB' : '#000000'" class="products__title">{{items.title}}</p>
+            <p class="products__title" [ngClass]="currentDarkModeState ? 'null' : 'dark-text-color'" >{{items.title}}</p>
             <div class="text-container">
-                <p [style.color]="currentDarkModeState ? '#F8F8FB' : '#000000'" class="products__price">PRICE: {{items.price}} $</p>
+                <p class="products__price" [ngClass]="currentDarkModeState ? 'null' : 'dark-text-color'" >PRICE: {{items.price}} $</p>
                 <button [disabled]="!(afAuth.user | async)" (click)="addArticleToCart(items)" class="products__btn"><mat-icon>shopping_cart</mat-icon></button>
             </div> 
         </div>
