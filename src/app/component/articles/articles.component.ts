@@ -37,7 +37,7 @@ export class ArticlesComponent implements OnInit {
           product.category === "women's clothing" || product.category === "men's clothing") {
           product.category = 'clothes';
         }
-        Object.assign(product, { quantity: 0, total: product.price, sum: product.price });
+        Object.assign(product, { quantity: 0, total: product.price, sum: 0 });
       });
     });
 

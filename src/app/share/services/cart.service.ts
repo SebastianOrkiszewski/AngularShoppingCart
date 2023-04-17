@@ -26,12 +26,12 @@ export class CartService {
   }
 
   addArticleToCart(item: Product) {
-    item.sum = item.price + item.sum;
+    item.sum += item.price;
     if (item.quantity === 0) {
       this.cartItems.push(item);
-      item.quantity += 1;
+      item.quantity ++;
     } else {
-      item.quantity += 1;
+      item.quantity ++;
     }
 
     this.getGrandTotal();
@@ -68,6 +68,7 @@ export class CartService {
       }
     });
     item.quantity = 0
+    item.sum = 0
     this.articleList.next(this.cartItems);
   }
 

@@ -5,7 +5,7 @@ import { Subject} from 'rxjs';
   providedIn: 'root'
 })
 export class DarkModeService {
-  private DarkModeState = new Subject<boolean>()
+  DarkModeState = new Subject<boolean>()
   status = this.DarkModeState.asObservable()
 
   constructor() { }
