@@ -8,10 +8,10 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
   styleUrls: ['./header.component.sass'],
 })
 export class HeaderComponent implements OnInit {
-  public counterItem!: number;
-  public searchItem: string = '';
-  public currentDarkModeState: boolean = false;
-  public cartState: boolean = false
+  counterItem: number = 0;
+  searchItem: string = '';
+  currentDarkModeState: boolean = false;
+  cartState: boolean = false
 
   constructor(
     private DarkModeService: DarkModeService,

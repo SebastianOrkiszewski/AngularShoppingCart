@@ -9,10 +9,10 @@ import { Product } from 'src/app/models/product.model';
   styleUrls: ['./cart.component.sass'],
 })
 export class CartComponent implements OnInit {
-  public products: Array<Product> = [];
-  public grandTotal!: number;
-  public currentDarkModeState: boolean = false
-  public cartState: boolean = false
+  products: Array<Product> = [];
+  grandTotal: number = 0;
+  currentDarkModeState: boolean = false
+  cartState: boolean = false
 
   constructor(
     private DarkModeService: DarkModeService,

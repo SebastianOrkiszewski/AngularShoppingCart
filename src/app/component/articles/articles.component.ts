@@ -11,10 +11,10 @@ import { Product } from 'src/app/models/product.model';
   styleUrls: ['./articles.component.sass'],
 })
 export class ArticlesComponent implements OnInit {
-  public articlesList: Array<Product> = []
-  public filterBy: string = '';
-  public filterArticles: Array<Product> = []
-  public currentDarkModeState: boolean = false;
+  articlesList: Array<Product> = []
+  filterBy: string = '';
+  filterArticles: Array<Product> = []
+  currentDarkModeState: boolean = false;
   
 
   constructor(

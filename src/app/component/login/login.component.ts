@@ -13,8 +13,8 @@ import { DarkModeService } from 'src/app/share/services/dark-mode.service';
 export class LoginComponent implements OnInit{
 
   loginForm: FormGroup;
-  firebaseError!: boolean
-  public currentDarkModeState!: boolean;
+  firebaseError!: boolean;
+  currentDarkModeState: boolean = false;
 
   constructor(private authService: AuthService, private DarkModeService: DarkModeService,) {
       this.loginForm = new FormGroup({

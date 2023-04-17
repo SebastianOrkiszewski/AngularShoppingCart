@@ -8,10 +8,10 @@ import { Product } from 'src/app/models/product.model';
   providedIn: 'root',
 })
 export class CartService {
-  public cartItems: Array<Product> = []
-  public articleList = new BehaviorSubject<Array<Product>>([]);
-  public search = new BehaviorSubject<string>('');
-  public showCart = new Subject<boolean>();
+  cartItems: Array<Product> = []
+  articleList = new BehaviorSubject<Array<Product>>([]);
+  search = new BehaviorSubject<string>('');
+  showCart = new Subject<boolean>();
   showCartState = this.showCart.asObservable();
 
   constructor(private router:Router) {}
