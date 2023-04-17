@@ -49,14 +49,14 @@ export class CartService {
 
   addItemInCart(item: Product) {
     item.quantity++;
-    item.sum = item.price + item.sum;
+    item.sum += item.price;
     this.getGrandTotal();
     this.articleList.next(this.cartItems);
   }
 
   removeItemInCart(item: Product) {
     item.quantity--;
-    item.sum = item.sum - item.price;
+    item.sum -= item.price;
     this.getGrandTotal();
     this.articleList.next(this.cartItems);
   }
