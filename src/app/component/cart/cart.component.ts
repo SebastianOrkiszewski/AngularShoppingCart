@@ -11,28 +11,40 @@ import { Product } from 'src/app/models/product.model';
 export class CartComponent implements OnInit {
   products: Array<Product> = [];
   grandTotal: number = 0;
-  currentDarkModeState: boolean = false
-  cartState: boolean = false
+  currentDarkModeState: boolean = false;
+  cartState: boolean = false;
 
-  constructor(
-    private DarkModeService: DarkModeService,
-    private CartService: CartService
-  ) {}
+  constructor(private DarkModeService: DarkModeService,private CartService: CartService) {}
+  
   ngOnInit(): void {
+    this.subscribeDarkModeService();
+
+    this.subscribeShowCartState();
+
+    this.subscribeGetArticles();
+
+    this.getDarkModeStorage();
+  }
+
+  subscribeDarkModeService() {
     this.DarkModeService.status.subscribe((data) => {
       this.currentDarkModeState = data;
     });
+  }
 
+  subscribeShowCartState() {
     this.CartService.showCartState.subscribe((data) => {
       this.cartState = data;
-    })
+    });
+  }
 
+  subscribeGetArticles() {
     this.CartService.getArticles().subscribe((res) => {
       this.products = res;
       this.grandTotal = this.CartService.getGrandTotal();
     });
-    this.getDarkModeStorage()
   }
+
   addItemInCart(item: Product) {
     this.CartService.addItemInCart(item);
   }
@@ -51,9 +63,9 @@ export class CartComponent implements OnInit {
     this.CartService.removeAllCart();
   }
 
-  getDarkModeStorage(){
-    let data: any = localStorage.getItem('currentDarkModeState')
-    this.currentDarkModeState = JSON.parse(data)
+  getDarkModeStorage() {
+    let data: any = localStorage.getItem('currentDarkModeState');
+    this.currentDarkModeState = JSON.parse(data);
   }
 
   switchCartState() {

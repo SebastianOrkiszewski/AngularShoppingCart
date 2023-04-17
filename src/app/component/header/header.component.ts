@@ -11,28 +11,37 @@ export class HeaderComponent implements OnInit {
   counterItem: number = 0;
   searchItem: string = '';
   currentDarkModeState: boolean = false;
-  cartState: boolean = false
+  cartState: boolean = false;
 
   constructor(
-    private DarkModeService: DarkModeService,
-    private CartService: CartService,
-    public afAuth: AngularFireAuth
-  ) {}
+    private DarkModeService: DarkModeService,private CartService: CartService,public afAuth: AngularFireAuth) {}
 
   ngOnInit(): void {
+    this.subscribeDarkModeService();
+
+    this.subscribeShowCartState();
+
+    this.subscribeCounterItem();
+
+    this.getDarkModeStorage();
+  }
+
+  subscribeDarkModeService() {
     this.DarkModeService.status.subscribe((data) => {
       this.currentDarkModeState = data;
     });
+  }
 
+  subscribeShowCartState() {
     this.CartService.showCartState.subscribe((data) => {
       this.cartState = data;
-    })
+    });
+  }
 
+  subscribeCounterItem() {
     this.CartService.getArticles().subscribe((res) => {
       this.counterItem = this.CartService.getQuantity();
     });
-
-    this.getDarkModeStorage();
   }
 
   switchDarkModeState() {
@@ -66,6 +75,6 @@ export class HeaderComponent implements OnInit {
 
   logout(): void {
     this.afAuth.signOut();
-    this.CartService.removeAllCart()
+    this.CartService.removeAllCart();
   }
 }

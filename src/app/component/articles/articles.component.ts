@@ -11,50 +11,54 @@ import { Product } from 'src/app/models/product.model';
   styleUrls: ['./articles.component.sass'],
 })
 export class ArticlesComponent implements OnInit {
-  articlesList: Array<Product> = []
+  articlesList: Array<Product> = [];
   filterBy: string = '';
-  filterArticles: Array<Product> = []
+  filterArticles: Array<Product> = [];
   currentDarkModeState: boolean = false;
-  
 
-  constructor(
-    private ApiService: ApiService,
-    private DarkModeService: DarkModeService,
-    private CartService: CartService,
-    public afAuth: AngularFireAuth
-  ) {}
+  constructor(private ApiService: ApiService,private DarkModeService: DarkModeService,private CartService: CartService,public afAuth: AngularFireAuth) {}
 
   ngOnInit(): void {
+    this.subscribeDarkModeService();
+
+    this.subscribeApi();
+
+    this.subscribeSearch();
+
+    this.getDarkModeStorage();
+
+    this.CartService.search.next('');
+  }
+
+  subscribeDarkModeService() {
     this.DarkModeService.status.subscribe((data) => {
       this.currentDarkModeState = data;
     });
-    
+  }
+
+  subscribeApi() {
     this.ApiService.getDetails().subscribe((res) => {
       this.articlesList = res;
       this.filterArticles = res;
       this.articlesList.forEach((product: Product) => {
-        if (
-          product.category === "women's clothing" || product.category === "men's clothing") {
+        if (product.category === "women's clothing" || product.category === "men's clothing") {
           product.category = 'clothes';
         }
         Object.assign(product, { quantity: 0, total: product.price, sum: 0 });
       });
     });
+  }
 
+  subscribeSearch() {
     this.CartService.search.subscribe((value) => {
       this.filterBy = value;
     });
-
-    this.getDarkModeStorage();
-    this.CartService.search.next('');
   }
 
   addArticleToCart(item: Product) {
     this.CartService.addArticleToCart(item);
     console.log(item);
   }
-
-  
 
   getDarkModeStorage() {
     let data: any = localStorage.getItem('currentDarkModeState');
@@ -69,7 +73,4 @@ export class ArticlesComponent implements OnInit {
       }
     });
   }
-
-
-
 }
