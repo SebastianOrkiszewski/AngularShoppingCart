@@ -6,7 +6,7 @@
             <div class="articles-container">
                 <div *ngFor="let item of products; let i = index" [ngClass]="currentDarkModeState ? 'articles-container__dark' : 'articles-container__light'">
                         <div class="articles-container__first">
-                            <img class="articles-container__image" src="{{item.image}}" alt="a">
+                            <img class="articles-container__image" src="{{item.image}}" alt="product">
                             <h3 class="articles-container__title" [ngClass]="currentDarkModeState ? 'null' : 'dark-text-color'" >{{item.title}}</h3>
                             <mat-icon (click)="removeCartItem(item)" class="articles-container__quantity--icons" >delete_forever</mat-icon>
                         </div>

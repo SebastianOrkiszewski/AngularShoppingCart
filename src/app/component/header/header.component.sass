@@ -18,7 +18,6 @@
     flex-direction: row
     align-items: center
     justify-content: flex-start
-    background-color: $accessoriesColor
     width: 180px
     height: 8vh
     min-height: 70px
@@ -37,7 +36,6 @@
     color: $itemsLightColor
     transform: scale(2.2)
     @media only screen and (max-width: $screen-s)
-        display: none
 
 .shop-logo__name
     font-size: 2em
@@ -45,7 +43,7 @@
     margin: 0 18px 0 18px
     color: $itemsLightColor
     @media only screen and (max-width: $screen-s)
-        margin: 0 0 0 -50px
+        display: none
 
 .buttons
     display: flex
@@ -135,7 +133,7 @@
 .search__mobile
     @include flexCenter
     background: $headerColor
-    height: 8vh
+    height: 6vh
     width: 100vw
     @media only screen and (min-width: 767px)
         display: none
@@ -144,7 +142,7 @@
     font-family: Rubik
     background-color: $inputColor
     color: $lightTextColor
-    height: 90%
+    height: 80%
     width: 100%
     margin-left: 1%
     padding-left: 10px
@@ -156,15 +154,15 @@
         color: #ffffffb7
     @media only screen and (max-width: $screen-m)
         margin-left: 0
-        height: 90%
-        width: 70%
+        height: 80%
+        width: 77%
 
 .search__button
     display: flex
     align-items: center
     background-color: $hoverColor
     color: $accessoriesColor
-    height: 90%
+    height: 80%
     margin: 0
     padding: 0 15px 0 15px
     border: none
@@ -176,3 +174,7 @@
     transform: scale(1.7)
     &:active
         transform: scale(1.5)
+    @media only screen and (max-width: $screen-m)
+        transform: scale(1.4)
+    &:active
+        transform: scale(1.3)
