@@ -15,8 +15,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService, private DarkModeService: DarkModeService,) {
     this.loginForm = new FormGroup({
-        'email': new FormControl('', [Validators.required, Validators.email]),
-        'password': new FormControl('', Validators.required)
+        'email': new FormControl(null, [Validators.required, Validators.email,Validators.minLength(0)]),
+        'password': new FormControl('', [Validators.required, Validators.minLength(6)])
     });
 }
 
@@ -52,4 +52,13 @@ export class LoginComponent implements OnInit {
       this.loginForm.value.password
     );
   }
+
+  get email(){
+    return this.loginForm.get('email')
+  }
+
+  get password(){
+    return this.loginForm.get('password')
+  }
+
 }
